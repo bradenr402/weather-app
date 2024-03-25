@@ -10,9 +10,74 @@
       <input type="search" name="search" id="search" class="search" />
       <button type="submit" class="submit-btn">Search</button>
     </form>
-    <h1>
-      <span class="title">Weather in <span id="city"></span></span>
+    <h1 class="title">
+      <img src="#" id="weather-icon" class="weather-icon" />
+      <span id="city"></span>
     </h1>
-    <ul id="weather-data-list"></ul>
+    <ul class="data-list">
+      <li id="conditions" class="data-item">
+        <span class="data-title">Conditions</span>
+        <div class="data-container">
+          <p id="conditions-data" class="data-value"></p>
+          <p id="conditions-notes" class="data-notes"></p>
+        </div>
+      </li>
+
+      <li id="temperature" class="data-item">
+        <span class="data-title">Temperature</span>
+        <div class="data-container">
+          <p id="temperature-data" class="data-value"></p>
+          <p id="temperature-notes" class="data-notes"></p>
+        </div>
+      </li>
+
+      <li id="precipitation" class="data-item">
+        <span class="data-title">Precipitation</span>
+        <div class="data-container">
+          <p id="precipitation-data" class="data-value"></p>
+          <p id="precipitation-notes" class="data-notes"></p>
+        </div>
+      </li>
+
+      <li id="humidity" class="data-item">
+        <span class="data-title">Humidity</span>
+        <div class="data-container">
+          <p id="humidity-data" class="data-value"></p>
+          <p id="humidity-notes" class="data-notes"></p>
+        </div>
+      </li>
+
+      <li id="visibility" class="data-item">
+        <span class="data-title">Visibility</span>
+        <div class="data-container">
+          <p id="visibility-data" class="data-value"></p>
+          <p id="visibility-notes" class="data-notes"></p>
+        </div>
+      </li>
+
+      <li id="uv-index" class="data-item">
+        <span class="data-title">UV Index</span>
+        <div class="data-container">
+          <p id="uv-index-data" class="data-value"></p>
+          <p id="uv-index-notes" class="data-notes"></p>
+        </div>
+      </li>
+
+      <li id="wind" class="data-item">
+        <span class="data-title">Wind</span>
+        <div class="data-container">
+          <p id="wind-data" class="data-value"></p>
+          <p id="wind-notes" class="data-notes"></p>
+        </div>
+      </li>
+
+      <li id="gusts" class="data-item">
+        <span class="data-title">Gusts</span>
+        <div class="data-container">
+          <p id="gusts-data" class="data-value"></p>
+          <p id="gusts-notes" class="data-notes"></p>
+        </div>
+      </li>
+    </ul>
   </body>
 </html>
