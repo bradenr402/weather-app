@@ -2,8 +2,8 @@ import saveLastLocation from './save-last-location';
 
 export default function getCityTitle(location) {
   const city = location.name;
-  const region = location.region;
-  const country = location.country;
+  const { region } = location;
+  const { country } = location;
 
   saveLastLocation(city, region, country);
 
