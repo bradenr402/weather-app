@@ -15,4 +15,6 @@ form.addEventListener('submit', (event) => {
   const searchTerm = searchField.value;
 
   fetchWeatherData(searchTerm).then((data) => updateWeatherData(data));
+  form.reset();
+  searchField.blur();
 });
