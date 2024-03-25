@@ -13,12 +13,12 @@ export default function updateWeatherData(data) {
   updateWeatherDataPoint(
     'temperature',
     `${data.current.temp_f}°F`,
-    `Feels like ${data.current.feelslike_f}°F`
+    `Feels like ${data.current.feelslike_f}°F`,
   );
   updateWeatherDataPoint('uv-index', data.current.uv);
   updateWeatherDataPoint(
     'wind',
-    `${data.current.wind_mph} mph ${data.current.wind_dir}`
+    `${data.current.wind_mph} mph ${data.current.wind_dir}`,
   );
   updateWeatherDataPoint('gusts', `${data.current.gust_mph} mph`);
   updateWeatherDataPoint('visibility', `${data.current.vis_miles} mi`);
