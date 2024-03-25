@@ -74,8 +74,6 @@ const regionAbbreviations = {
 function formattedRegionAndCountry(region, country) {
   if (regionAbbreviations[country] && regionAbbreviations[country][region]) {
     const abbreviation = regionAbbreviations[country][region];
-    console.log(abbreviation);
-
     return `${abbreviation}, ${country}`;
   }
   return country;
