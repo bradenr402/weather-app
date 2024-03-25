@@ -9,7 +9,6 @@ export default function getCityTitle(location) {
 
   if (country === 'United States of America' || country === 'Canada') {
     return `${city}, ${region}, ${country}`;
-  } else {
-    return `${city}, ${country}`;
   }
+  return `${city}, ${country}`;
 }
