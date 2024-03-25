@@ -136,3 +136,21 @@ form {
 .weather-icon[src='#'] {
   display: none;
 }
+
+footer {
+  margin-top: 4rem;
+  width: 100%;
+  background-color: #e5e7eb;
+  padding: 0.5rem;
+}
+
+.weatherapi-attribution {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.weatherapi-image {
+  height: 2rem;
+}
