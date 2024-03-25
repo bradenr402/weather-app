@@ -17,8 +17,8 @@ function updateWeatherPoint(dataPoint, text, notes = '') {
 
   const weatherNotes = document.getElementById(`${dataPoint}-notes`);
   weatherNotes.textContent = notes;
-  if (notes === '') weatherNotes.classList.add('sr-only');
-  else weatherNotes.classList.remove('sr-only');
+  if (notes === '') weatherNotes.classList.add('hidden');
+  else weatherNotes.classList.remove('hidden');
 }
 
 function cityTitle(location) {
