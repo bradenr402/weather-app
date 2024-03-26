@@ -23,26 +23,30 @@ export default function updateWeatherData(data) {
   weatherIcon.src = `https:${data.current.condition.icon}`;
 
   updateWeatherDataPoint(
-    'conditions',
+    'condition',
     data.current.condition.text,
     `${data.current.cloud}% cloud coverage`,
   );
-  updateWeatherDataPoint('humidity', `${data.current.humidity}%`);
   updateWeatherDataPoint(
     'temperature',
     `${data.current.temp_f}°F`,
     `Feels like ${data.current.feelslike_f}°F`,
   );
+  updateWeatherDataPoint(
+    'precipitation',
+    `${data.forecast.forecastday[0].day.daily_chance_of_rain}%`,
+    `${data.current.precip_in} in`,
+  );
+  updateWeatherDataPoint('humidity', `${data.current.humidity}%`);
+  updateWeatherDataPoint('visibility', `${data.current.vis_miles} mi`);
+  updateWeatherDataPoint(
+    'air-quality',
+    aqiValue(data.current.air_quality['us-epa-index']),
+  );
   updateWeatherDataPoint('uv-index', data.current.uv);
   updateWeatherDataPoint(
     'wind',
     `${data.current.wind_mph} mph ${data.current.wind_dir}`,
-  );
-  updateWeatherDataPoint('gusts', `${data.current.gust_mph} mph`);
-  updateWeatherDataPoint('visibility', `${data.current.vis_miles} mi`);
-  updateWeatherDataPoint('precipitation', `${data.current.precip_in} in`);
-  updateWeatherDataPoint(
-    'air-quality',
-    aqiValue(data.current.air_quality['us-epa-index']),
+    `Gusts of wind up to ${data.current.gust_mph} mph`,
   );
 }

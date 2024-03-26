@@ -31,7 +31,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
 }
 
 .weather-icon {
@@ -81,7 +81,8 @@ form {
   transform: scale(1.05);
 }
 
-.data-list {
+.data-list,
+.forecast-list {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -90,7 +91,12 @@ form {
   margin: 0 auto;
 }
 
-.data-item {
+.forecast-list {
+  margin-bottom: 2rem;
+}
+
+.data-item,
+.forecast-item {
   list-style-type: none;
   background: rgb(141, 205, 236, 0.3);
   border-radius: 1rem;
@@ -108,14 +114,16 @@ form {
   /* aspect-ratio: 1; */
 }
 
-.data-title {
+.data-title,
+.forecast-title {
   font-weight: bold;
   font-size: 1.1rem;
   position: absolute;
   top: 1.5rem;
 }
 
-.data-value {
+.data-value,
+.forecast-value {
   font-size: 1.5rem;
 }
 
@@ -126,7 +134,8 @@ form {
   bottom: 1.5rem;
 }
 
-.data-container {
+.data-container,
+.forecast-container {
   display: flex;
   flex-direction: column;
   align-items: center;
