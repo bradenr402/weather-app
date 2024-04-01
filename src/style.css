@@ -12,6 +12,7 @@ html {
 
 body {
   font-family: sans-serif;
+  margin-bottom: 8rem;
 }
 
 .sr-only {
@@ -27,11 +28,16 @@ body {
   display: none;
 }
 
-.title {
+.city-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2rem 0;
+  margin-top: 2rem;
+}
+
+.forecast-title,
+.weather-title {
+  margin: 0 4rem 1rem;
 }
 
 .weather-icon {
@@ -66,23 +72,45 @@ form {
 .submit-btn {
   border: none;
   background-color: #1ab2ff;
-  color: white;
+  color: transparent;
   font-size: 1.25rem;
   font-weight: bold;
-  padding: 0.5rem 2rem;
+  padding: 0;
   border-radius: 9999px;
   cursor: pointer;
-  transition: all 200ms ease;
+  transition: width 500ms ease, padding 500ms ease, color 500ms ease,
+    box-shadow 500ms ease, background-color 500ms ease;
+
+  user-select: none;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+
+  position: relative;
 }
 
 .submit-btn:hover {
   box-shadow: 2px 2px 6px rgb(0, 0, 0, 0.2);
   background-color: #4dc3ff;
-  transform: scale(1.05);
+  color: white;
+  width: 130px;
+  padding: 0.5rem 2rem;
 }
 
-.data-list,
-.forecast-list {
+.submit-search-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  transition: color 300ms ease;
+}
+
+.submit-btn:hover .submit-search-icon {
+  color: transparent;
+}
+
+.data-list {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
@@ -91,12 +119,7 @@ form {
   margin: 0 auto;
 }
 
-.forecast-list {
-  margin-bottom: 2rem;
-}
-
-.data-item,
-.forecast-item {
+.data-item {
   list-style-type: none;
   background: rgb(141, 205, 236, 0.3);
   border-radius: 1rem;
@@ -114,16 +137,14 @@ form {
   /* aspect-ratio: 1; */
 }
 
-.data-title,
-.forecast-title {
+.data-title {
   font-weight: bold;
   font-size: 1.1rem;
   position: absolute;
   top: 1.5rem;
 }
 
-.data-value,
-.forecast-value {
+.data-value {
   font-size: 1.5rem;
 }
 
@@ -134,8 +155,7 @@ form {
   bottom: 1.5rem;
 }
 
-.data-container,
-.forecast-container {
+.data-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -147,10 +167,12 @@ form {
 }
 
 footer {
-  margin-top: 4rem;
   width: 100%;
   background-color: #e5e7eb;
   padding: 0.5rem;
+
+  position: fixed;
+  bottom: 0;
 }
 
 .weatherapi-attribution {
@@ -162,4 +184,39 @@ footer {
 
 .weatherapi-image {
   height: 2rem;
+}
+
+.weather-forecast {
+  display: flex;
+  gap: 1rem;
+  margin: 0 4rem 2rem;
+
+  overflow-x: scroll;
+}
+
+.forecast-list {
+  background: rgb(141, 205, 236, 0.3);
+  border-radius: 1rem;
+  text-align: center;
+  padding: 1.5rem;
+  flex: 0 0 200px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.forecast-list .title {
+  text-align: center;
+  width: 100%;
+}
+
+.forecast-item {
+  list-style-type: none;
+}
+
+.day-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }

@@ -71,12 +71,18 @@ const regionAbbreviations = {
   },
 };
 
+const countryAbbreviations = {
+  'United States of America': 'USA',
+  Australia: 'AU',
+  'United Kingdom': 'UK',
+};
+
 function formattedRegionAndCountry(region, country) {
-  if (regionAbbreviations[country] && regionAbbreviations[country][region]) {
-    const abbreviation = regionAbbreviations[country][region];
-    return `${abbreviation}, ${country}`;
-  }
-  return country;
+  const countryAbbr = countryAbbreviations[country] || country;
+  const regionAbbr = regionAbbreviations?.[country]?.[region];
+
+  if (regionAbbr) return `${regionAbbr}, ${countryAbbr}`;
+  return countryAbbr;
 }
 
 export default function getCityTitle(location) {

@@ -36,5 +36,4 @@ form.addEventListener('submit', (event) => {
     updateForecastData(data);
   });
   form.reset();
-  searchField.blur();
 });

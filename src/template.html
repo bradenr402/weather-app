@@ -3,27 +3,35 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <title>Weather App</title>
   </head>
   <body>
     <form>
       <input type="search" name="search" id="search" class="search" />
-      <button type="submit" class="submit-btn">Search</button>
+      <button type="submit" class="submit-btn">
+        <span class="material-symbols-outlined submit-search-icon">
+          search
+        </span>
+        Search
+      </button>
     </form>
-    <section class="current-weather">
-      <h1 class="title">
-        <img src="#" id="weather-icon" class="weather-icon" />
-        <span id="city"></span>
-      </h1>
-      <!-- Generate weather data here -->
+    <h1 class="city-title">
+      <img src="#" id="weather-icon" class="weather-icon" />
+      <span id="city"></span>
+    </h1>
+
+    <h2 class="forecast-title">Forecast</h2>
+    <section class="weather-forecast">
+      <!-- Generate forecast data here -->
     </section>
 
-    <section class="weather-forecast">
-      <h2 class="title">
-        <img src="#" id="weather-forecast-icon" class="weather-icon" />
-        <span>Forecast</span>
-      </h2>
-      <!-- Generate forecast here -->
+    <h2 class="weather-title">Current Weather</h2>
+    <section class="current-weather">
+      <!-- Generate current weather data here -->
     </section>
 
     <footer>

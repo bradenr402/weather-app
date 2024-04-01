@@ -11,6 +11,8 @@ function getDayName(daysInFuture) {
   const today = new Date().getDay();
   const futureDay = (today + daysInFuture) % 7;
 
+  if (futureDay === 0) return 'Today';
+  if (futureDay === 1) return 'Tomorrow';
   return days[futureDay];
 }
 
@@ -19,11 +21,10 @@ export default function generateForecastList(index) {
   forecastList.className = 'forecast-list';
   forecastList.id = `forecast-${index}`;
 
-  const section = document.querySelector('section.weather-forecast');
   const dayTitle = document.createElement('h3');
-  dayTitle.classList.add('day-title', 'title');
+  dayTitle.classList.add('day-title');
   dayTitle.textContent = getDayName(index);
-  section.appendChild(dayTitle);
+  forecastList.appendChild(dayTitle);
 
   const forecastItems = [
     { id: 'condition', title: 'Conditions' },
@@ -41,7 +42,7 @@ export default function generateForecastList(index) {
     listItem.className = 'forecast-item';
 
     const titleSpan = document.createElement('span');
-    titleSpan.className = 'forecast-title';
+    titleSpan.className = 'forecast-title sr-only';
     titleSpan.textContent = item.title;
 
     const containerDiv = document.createElement('div');
