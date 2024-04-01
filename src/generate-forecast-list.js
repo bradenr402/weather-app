@@ -1,4 +1,6 @@
 function getDayName(daysInFuture) {
+  if (daysInFuture === 0) return 'Today';
+
   const days = [
     'Sunday',
     'Monday',
@@ -8,11 +10,9 @@ function getDayName(daysInFuture) {
     'Friday',
     'Saturday',
   ];
-  const today = new Date().getDay();
-  const futureDay = (today + daysInFuture) % 7;
 
-  if (futureDay === 0) return 'Today';
-  if (futureDay === 1) return 'Tomorrow';
+  const futureDay = (new Date().getDay() + daysInFuture) % 7;
+
   return days[futureDay];
 }
 
