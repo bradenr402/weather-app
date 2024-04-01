@@ -1,4 +1,5 @@
 import updateForecastDataPoint from './update-forecast-data-point';
+import { DAYS } from './fetch-weather-data';
 
 function formatTime(time) {
   const [sunsetHours, sunsetMinutes] = time.split(/:|\s/);
@@ -14,7 +15,7 @@ function formatTime(time) {
 }
 
 export default function updateForecastData(data) {
-  for (let day = 0; day < 7; day++) {
+  for (let day = 0; day < DAYS; day++) {
     const forecastData = data.forecast.forecastday[day];
     updateForecastDataPoint(day, 'condition', forecastData.day.condition.text);
     updateForecastDataPoint(day, 'max-temp', `${forecastData.day.maxtemp_f}°F`);

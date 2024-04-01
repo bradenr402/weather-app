@@ -1,5 +1,5 @@
 import './style.css';
-import fetchWeatherData from './fetch-weather-data';
+import fetchWeatherData, { DAYS } from './fetch-weather-data';
 import getLastLocation from './get-last-location';
 import updateWeatherData from './update-weather-data';
 import updateForecastData from './update-forecast-data';
@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
 
   const forecastContainer = document.getElementById('weather-forecast');
   // Generate forecast lists for numbers 1 through 6
-  for (let i = 0; i <= 6; i++) {
+  for (let i = 0; i < DAYS; i++) {
     const forecastList = generateForecastList(i);
     forecastContainer.appendChild(forecastList);
   }
