@@ -11,13 +11,17 @@
   </head>
   <body>
     <form>
-      <input type="search" name="search" id="search" class="search" />
-      <button type="submit" class="submit-btn">
-        <span class="material-symbols-outlined submit-search-icon">
-          search
-        </span>
-        Search
-      </button>
+      <div class="search-container">
+        <input
+          type="search"
+          name="search"
+          id="search"
+          class="search"
+          placeholder="Search..."
+          autocomplete="off"
+        />
+        <span class="material-symbols-outlined search-icon">search</span>
+      </div>
     </form>
     <h1 class="city-title">
       <img src="#" id="weather-icon" class="weather-icon" />
