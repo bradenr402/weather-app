@@ -7,11 +7,11 @@ import generateForecastList from './generate-forecast-list';
 import generateDataList from './generate-data-list';
 
 window.addEventListener('load', () => {
-  const dataContainer = document.querySelector('.current-weather');
+  const dataContainer = document.getElementById('current-weather');
   const dataList = generateDataList();
   dataContainer.appendChild(dataList);
 
-  const forecastContainer = document.querySelector('.weather-forecast');
+  const forecastContainer = document.getElementById('weather-forecast');
   // Generate forecast lists for numbers 1 through 6
   for (let i = 0; i <= 6; i++) {
     const forecastList = generateForecastList(i);
@@ -25,7 +25,7 @@ window.addEventListener('load', () => {
   });
 });
 
-const form = document.querySelector('form');
+const form = document.getElementById('search-form');
 const searchField = document.getElementById('search');
 form.addEventListener('submit', (event) => {
   event.preventDefault();

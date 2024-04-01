@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -9,43 +9,54 @@
     />
     <title>Weather App</title>
   </head>
-  <body>
-    <form>
-      <div class="search-container">
+  <body class="mb-20 overflow-x-hidden font-sans">
+    <form
+      id="search-form"
+      class="mx-auto my-8 flex w-full max-w-[1200px] items-center justify-center gap-8 px-16"
+    >
+      <div
+        class="group relative flex w-1/2 transition-width duration-300 ease-in-out focus-within:w-3/4"
+      >
         <input
           type="search"
           name="search"
           id="search"
-          class="search"
+          class="flex-grow rounded-full border border-gray-400 py-2 pl-12 pr-5 text-xl outline-none ring-1 ring-transparent transition-all duration-300 ease-in-out hover:border-blue-400 focus:border-blue-400 focus:ring-blue-400"
           placeholder="Search..."
           autocomplete="off"
         />
-        <span class="material-symbols-outlined search-icon">search</span>
+        <span
+          class="material-symbols-outlined absolute left-4 top-1/2 w-5 -translate-y-1/2 text-gray-400 transition-colors duration-300 ease-in-out group-focus-within:text-blue-400 group-hover:text-blue-400"
+          >search</span
+        >
       </div>
     </form>
-    <h1 class="city-title">
-      <img src="#" id="weather-icon" class="weather-icon" />
-      <span id="city"></span>
+    <h1 class="mt-8 flex items-center justify-center text-4xl">
+      <img src="#" id="weather-icon" class="mr-2 aspect-square size-16" />
+      <span id="city" class="pr-8"></span>
     </h1>
 
-    <h2 class="forecast-title">Forecast</h2>
-    <section class="weather-forecast">
+    <h2 class="mx-16 mb-4 text-xl font-semibold">Forecast</h2>
+    <section
+      id="weather-forecast"
+      class="mx-16 mb-8 flex max-w-[1200px] gap-4 overflow-x-scroll"
+    >
       <!-- Generate forecast data here -->
     </section>
 
-    <h2 class="weather-title">Current Weather</h2>
-    <section class="current-weather">
+    <h2 class="mx-16 mb-4 text-xl font-semibold">Current Weather</h2>
+    <section id="current-weather" class="mx-16 mb-8">
       <!-- Generate current weather data here -->
     </section>
 
-    <footer>
-      <div class="weatherapi-attribution">
+    <footer class="fixed bottom-0 w-full bg-gray-200 p-2">
+      <div class="flex items-center justify-center gap-4 text-xs">
         Powered by
         <a href="https://www.weatherapi.com/" title="Free Weather API"
           ><img
             src="https://cdn.weatherapi.com/v4/images/weatherapi_logo.png"
             alt="Weather data by WeatherAPI.com"
-            class="weatherapi-image"
+            class="h-8"
             border="0"
         /></a>
       </div>

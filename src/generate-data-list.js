@@ -1,6 +1,14 @@
 export default function generateDataList() {
   const dataList = document.createElement('ul');
-  dataList.className = 'data-list';
+  dataList.classList.add(
+    'data-list',
+    'flex',
+    'flex-wrap',
+    'gap-4',
+    'px-16',
+    'max-w-[1200px]',
+    'mx-auto',
+  );
 
   const dataItems = [
     { id: 'condition', title: 'Conditions' },
@@ -16,22 +24,43 @@ export default function generateDataList() {
   dataItems.forEach((item) => {
     const listItem = document.createElement('li');
     listItem.id = item.id;
-    listItem.className = 'data-item';
+    listItem.classList.add(
+      'data-item',
+      'relative',
+      'flex',
+      'flex-grow',
+      'list-none',
+      'flex-col',
+      'items-center',
+      'justify-center',
+      'rounded-2xl',
+      'bg-sky-300',
+      'bg-opacity-30',
+      'p-6',
+      'text-center',
+      'min-w-[200px]',
+      'h-[200px]',
+    );
 
     const titleSpan = document.createElement('span');
-    titleSpan.className = 'data-title';
     titleSpan.textContent = item.title;
+    titleSpan.classList.add('font-bold', 'text-lg', 'absolute', 'top-6');
 
     const containerDiv = document.createElement('div');
-    containerDiv.className = 'data-container';
+    containerDiv.classList.add('flex', 'flex-col', 'items-center', 'gap-4');
 
     const dataParagraph = document.createElement('p');
     dataParagraph.id = `${item.id}-data`;
-    dataParagraph.className = 'data-value';
+    dataParagraph.classList.add('text-2xl');
 
     const notesParagraph = document.createElement('p');
     notesParagraph.id = `${item.id}-notes`;
-    notesParagraph.className = 'data-notes';
+    notesParagraph.classList.add(
+      'text-sm',
+      'opacity-60',
+      'absolute',
+      'bottom-6',
+    );
 
     containerDiv.append(dataParagraph, notesParagraph);
     listItem.appendChild(titleSpan);

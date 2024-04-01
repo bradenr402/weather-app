@@ -18,11 +18,29 @@ function getDayName(daysInFuture) {
 
 export default function generateForecastList(index) {
   const forecastList = document.createElement('ul');
-  forecastList.className = 'forecast-list';
   forecastList.id = `forecast-${index}`;
+  forecastList.className = 'forecast-list';
+  forecastList.classList.add(
+    'forecast-list',
+    'bg-sky-300',
+    'bg-opacity-30',
+    'rounded-2xl',
+    'text-center',
+    'p-6',
+    'min-w-[200px]',
+    'flex',
+    'flex-col',
+    'gap-2',
+  );
 
   const dayTitle = document.createElement('h3');
-  dayTitle.classList.add('day-title');
+  dayTitle.classList.add(
+    'day-title',
+    'font-bold',
+    'text-center',
+    'text-lg',
+    'mb-2',
+  );
   dayTitle.textContent = getDayName(index);
   forecastList.appendChild(dayTitle);
 
@@ -39,10 +57,10 @@ export default function generateForecastList(index) {
   forecastItems.forEach((item) => {
     const listItem = document.createElement('li');
     listItem.id = `${item.id}-${index}`;
-    listItem.className = 'forecast-item';
+    listItem.classList.add('forecast-item', 'list-none');
 
     const titleSpan = document.createElement('span');
-    titleSpan.className = 'forecast-title sr-only';
+    titleSpan.className = 'sr-only';
     titleSpan.textContent = item.title;
 
     const containerDiv = document.createElement('div');
@@ -50,7 +68,7 @@ export default function generateForecastList(index) {
 
     const dataParagraph = document.createElement('p');
     dataParagraph.id = `${item.id}-data-${index}`;
-    dataParagraph.className = 'forecast-value';
+    // dataParagraph.className = `${item.id}-value`;
 
     containerDiv.appendChild(dataParagraph);
     listItem.append(titleSpan);
