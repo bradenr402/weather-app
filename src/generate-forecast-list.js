@@ -26,29 +26,29 @@ export default function generateForecastList(index) {
     'rounded-2xl',
     'text-center',
     'p-6',
-    'w-[200px]',
-    'min-w-[200px]',
-    'flex',
-    'flex-col',
-    'gap-2',
+    'w-[225px]',
+    'min-w-[225px]',
+    'grid',
+    'grid-cols-2',
+    'gap-y-6',
+    'gap-x-2',
   );
 
+  const headerDiv = document.createElement('div');
+  headerDiv.classList.add('col-span-2');
+
   const dayTitle = document.createElement('h3');
-  dayTitle.classList.add(
-    'font-bold',
-    'text-center',
-    'text-lg',
-    'mb-2',
-  );
+  dayTitle.classList.add('font-bold', 'text-center', 'text-lg');
   dayTitle.textContent = getDayName(index);
-  forecastList.appendChild(dayTitle);
+  headerDiv.appendChild(dayTitle);
+  forecastList.appendChild(headerDiv);
 
   const forecastItems = [
     { id: 'condition', title: 'Conditions' },
     { id: 'max-temp', title: 'High' },
     { id: 'min-temp', title: 'Low' },
-    { id: 'total-precipitation', title: 'Precipitation' },
     { id: 'rain-chance', title: 'Chance of Rain' },
+    { id: 'total-precipitation', title: 'Precipitation' },
     { id: 'sunrise', title: 'Sunrise' },
     { id: 'sunset', title: 'Sunset' },
   ];
@@ -63,14 +63,21 @@ export default function generateForecastList(index) {
     titleSpan.textContent = item.title;
 
     const containerDiv = document.createElement('div');
+    containerDiv.classList.add('flex', 'flex-col');
 
-    const dataParagraph = document.createElement('p');
-    dataParagraph.id = `${item.id}-data-${index}`;
+    const dataSpan = document.createElement('span');
+    dataSpan.id = `${item.id}-data-${index}`;
+    dataSpan.classList.add('text-lg', 'leading-tight');
 
-    containerDiv.appendChild(dataParagraph);
+    const notesSpan = document.createElement('span');
+    notesSpan.id = `${item.id}-notes-${index}`;
+    notesSpan.classList.add('text-sm', 'opacity-60');
+
+    containerDiv.append(dataSpan, notesSpan);
     listItem.append(titleSpan);
     listItem.appendChild(containerDiv);
-    forecastList.appendChild(listItem);
+    if (item.id === 'condition') headerDiv.appendChild(listItem);
+    else forecastList.appendChild(listItem);
   });
 
   return forecastList;

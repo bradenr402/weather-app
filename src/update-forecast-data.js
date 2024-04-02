@@ -21,31 +21,45 @@ export default function updateForecastData(data) {
   for (let day = 0; day < DAYS; day++) {
     const forecastData = data.forecast.forecastday[day];
     updateForecastDataPoint(day, 'condition', forecastData.day.condition.text);
-    updateForecastDataPoint(day, 'max-temp', `${forecastData.day.maxtemp_f}°F`);
-    updateForecastDataPoint(day, 'min-temp', `${forecastData.day.mintemp_f}°F`);
+    updateForecastDataPoint(
+      day,
+      'max-temp',
+      `${forecastData.day.maxtemp_f}°F`,
+      'high',
+    );
+    updateForecastDataPoint(
+      day,
+      'min-temp',
+      `${forecastData.day.mintemp_f}°F`,
+      'low',
+    );
 
     updateForecastDataPoint(
       day,
       'total-precipitation',
       `${forecastData.day.totalprecip_in} in`,
+      'precip',
     );
 
     updateForecastDataPoint(
       day,
       'rain-chance',
       `${forecastData.day.daily_chance_of_rain}%`,
+      'chance',
     );
 
     updateForecastDataPoint(
       day,
       'sunrise',
       formatTime(forecastData.astro.sunrise),
+      'sunrise',
     );
 
     updateForecastDataPoint(
       day,
       'sunset',
       formatTime(forecastData.astro.sunset),
+      'sunset',
     );
   }
 }

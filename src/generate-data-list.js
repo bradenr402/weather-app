@@ -1,10 +1,6 @@
 export default function generateDataList() {
   const dataList = document.createElement('ul');
-  dataList.classList.add(
-    'flex',
-    'flex-wrap',
-    'gap-4',
-  );
+  dataList.classList.add('flex', 'flex-wrap', 'gap-4');
 
   const dataItems = [
     { id: 'condition', title: 'Conditions' },
