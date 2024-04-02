@@ -15,6 +15,9 @@ function formatTime(time) {
 }
 
 export default function updateForecastData(data) {
+  const forecastDaysTitle = document.getElementById('days');
+  forecastDaysTitle.textContent = DAYS;
+
   for (let day = 0; day < DAYS; day++) {
     const forecastData = data.forecast.forecastday[day];
     updateForecastDataPoint(day, 'condition', forecastData.day.condition.text);
