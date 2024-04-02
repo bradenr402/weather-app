@@ -1,5 +1,6 @@
 import updateWeatherDataPoint from './update-weather-data-point';
 import getCityTitle from './get-city-title';
+import timeFormat from './time-format';
 
 function aqiValue(num) {
   const aqiDictionary = {
@@ -16,8 +17,11 @@ function aqiValue(num) {
 }
 
 export default function updateWeatherData(data) {
+  const currentTime = document.getElementById('current-time');
+  currentTime.textContent += timeFormat(data.location.localtime);
+
   const city = document.getElementById('city');
-  city.textContent = getCityTitle(data.location);
+  city.textContent = `${getCityTitle(data.location)}`;
 
   const weatherIcon = document.getElementById('weather-icon');
   weatherIcon.src = `https:${data.current.condition.icon}`;

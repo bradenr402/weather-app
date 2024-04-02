@@ -1,13 +1,9 @@
 export default function generateDataList() {
   const dataList = document.createElement('ul');
   dataList.classList.add(
-    'data-list',
     'flex',
     'flex-wrap',
     'gap-4',
-    'px-16',
-    'max-w-[1200px]',
-    'mx-auto',
   );
 
   const dataItems = [
@@ -25,21 +21,21 @@ export default function generateDataList() {
     const listItem = document.createElement('li');
     listItem.id = item.id;
     listItem.classList.add(
-      'data-item',
       'relative',
+      'rounded-2xl',
+      'text-center',
+      'bg-sky-300',
+      'bg-opacity-30',
+      'p-6',
+      'w-[200px]',
+      'min-w-[200px]',
+      'h-[200px]',
       'flex',
       'flex-grow',
       'list-none',
       'flex-col',
       'items-center',
       'justify-center',
-      'rounded-2xl',
-      'bg-sky-300',
-      'bg-opacity-30',
-      'p-6',
-      'text-center',
-      'min-w-[200px]',
-      'h-[200px]',
     );
 
     const titleSpan = document.createElement('span');

@@ -21,12 +21,12 @@ export default function generateForecastList(index) {
   forecastList.id = `forecast-${index}`;
   forecastList.className = 'forecast-list';
   forecastList.classList.add(
-    'forecast-list',
     'bg-sky-300',
     'bg-opacity-30',
     'rounded-2xl',
     'text-center',
     'p-6',
+    'w-[200px]',
     'min-w-[200px]',
     'flex',
     'flex-col',
@@ -35,7 +35,6 @@ export default function generateForecastList(index) {
 
   const dayTitle = document.createElement('h3');
   dayTitle.classList.add(
-    'day-title',
     'font-bold',
     'text-center',
     'text-lg',
@@ -57,18 +56,16 @@ export default function generateForecastList(index) {
   forecastItems.forEach((item) => {
     const listItem = document.createElement('li');
     listItem.id = `${item.id}-${index}`;
-    listItem.classList.add('forecast-item', 'list-none');
+    listItem.classList.add('list-none');
 
     const titleSpan = document.createElement('span');
     titleSpan.className = 'sr-only';
     titleSpan.textContent = item.title;
 
     const containerDiv = document.createElement('div');
-    containerDiv.className = 'forecast-container';
 
     const dataParagraph = document.createElement('p');
     dataParagraph.id = `${item.id}-data-${index}`;
-    // dataParagraph.className = `${item.id}-value`;
 
     containerDiv.appendChild(dataParagraph);
     listItem.append(titleSpan);
