@@ -1,6 +1,6 @@
 import updateWeatherDataPoint from './update-weather-data-point';
 import getCityTitle from './get-city-title';
-import timeFormat from './time-format';
+import formatTime from './format-time';
 
 function aqiValue(num) {
   const aqiDictionary = {
@@ -18,7 +18,7 @@ function aqiValue(num) {
 
 export default function updateWeatherData(data) {
   const currentTime = document.getElementById('current-time');
-  currentTime.textContent += timeFormat(data.location.localtime);
+  currentTime.textContent = formatTime(data.location.localtime);
 
   const city = document.getElementById('city');
   city.textContent = `${getCityTitle(data.location)}`;

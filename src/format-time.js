@@ -1,4 +1,4 @@
-export default function timeFormat(date) {
+export default function formatTime(date) {
   const time = new Date(date);
   let format = '{h}:{m} {ap}';
 
