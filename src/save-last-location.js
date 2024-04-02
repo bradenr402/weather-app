@@ -1,3 +1,3 @@
-export default function saveLastLocation(city, region, country) {
-  localStorage.setItem('lastLocation', [city, region, country].join(', '));
+export default function saveLastLocation(location) {
+  localStorage.setItem('lastLocation', `${location.lat},${location.lon}`);
 }

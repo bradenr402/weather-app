@@ -5,6 +5,7 @@ import updateWeatherData from './update-weather-data';
 import updateForecastData from './update-forecast-data';
 import generateForecastList from './generate-forecast-list';
 import generateDataList from './generate-data-list';
+import geoLocate from './geolocation';
 
 window.addEventListener('load', () => {
   const weatherContainer = document.getElementById('current-weather');
@@ -36,4 +37,20 @@ form.addEventListener('submit', (event) => {
     updateForecastData(data);
   });
   form.reset();
+});
+
+const currentLocationBtn = document.getElementById('current-location');
+currentLocationBtn.addEventListener('click', () => {
+  geoLocate()
+    .then((location) => {
+      const currentLocation = `${location.lat},${location.lng}`;
+      fetchWeatherData(currentLocation).then((data) => {
+        updateWeatherData(data);
+        updateForecastData(data);
+      });
+    })
+    .catch((error) => {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    });
 });
