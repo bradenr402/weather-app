@@ -1,5 +1,3 @@
-import saveLastLocation from './save-last-location';
-
 const regionAbbreviations = {
   'United States of America': {
     Alabama: 'AL',
@@ -89,8 +87,6 @@ export default function getCityTitle(location) {
   const city = location.name;
   const { region } = location;
   const { country } = location;
-
-  saveLastLocation(city, region, country);
 
   return `${city}, ${formattedRegionAndCountry(region, country)}`;
 }
