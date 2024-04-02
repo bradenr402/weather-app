@@ -7,9 +7,9 @@ import generateForecastList from './generate-forecast-list';
 import generateDataList from './generate-data-list';
 
 window.addEventListener('load', () => {
-  const dataContainer = document.getElementById('current-weather');
+  const weatherContainer = document.getElementById('current-weather');
   const dataList = generateDataList();
-  dataContainer.appendChild(dataList);
+  weatherContainer.appendChild(dataList);
 
   const forecastContainer = document.getElementById('weather-forecast');
   // Generate forecast lists for numbers 1 through 6
