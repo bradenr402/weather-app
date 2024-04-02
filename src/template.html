@@ -12,10 +12,10 @@
   <body class="mb-20 overflow-x-hidden font-sans">
     <form
       id="search-form"
-      class="mx-auto my-8 flex w-full max-w-[1200px] items-center justify-center gap-8 px-16"
+      class="mx-auto mb-6 mt-12 flex w-full max-w-[1200px] items-center justify-center gap-8 px-16"
     >
       <div
-        class="group relative flex w-1/2 transition-width duration-300 ease-in-out focus-within:w-3/4"
+        class="max-w-3/4 group relative flex w-[400px] transition-width duration-300 ease-in-out focus-within:w-[700px]"
       >
         <input
           type="search"
@@ -31,39 +31,46 @@
         >
       </div>
     </form>
-    <h1 class="mt-8 flex items-center justify-center text-4xl">
+    <h1 class="mb-4 flex items-center justify-center text-4xl">
       <img src="#" id="weather-icon" class="mr-2 aspect-square size-16" />
       <span id="city" class="pr-8">
         <!-- Insert city name here -->
       </span>
     </h1>
 
-    <section
-      class="mx-auto mb-8 max-w-[1200px] rounded-3xl border border-gray-200 bg-slate-50 pt-8"
-    >
-      <h2 class="mx-12 mb-2 text-xl font-semibold">
-        <span id="days"></span>
-        Day Forecast
-      </h2>
-      <div id="weather-forecast" class="flex gap-4 overflow-x-scroll px-8 pb-8">
-        <!-- Generate forecast data here -->
-      </div>
-    </section>
+    <div class="mx-4">
+      <section
+        class="mx-auto mb-8 max-w-[1200px] rounded-3xl border border-gray-200 bg-slate-50 pt-8"
+      >
+        <h2 class="mx-12 mb-2 text-xl font-semibold">
+          <span id="days"></span>
+          Day Forecast
+        </h2>
+        <div
+          id="weather-forecast"
+          class="flex gap-4 overflow-x-scroll px-8 pb-8"
+        >
+          <!-- Generate forecast data here -->
+        </div>
+      </section>
+    </div>
 
-    <section
-      class="mx-auto mb-8 max-w-[1200px] rounded-3xl border border-gray-200 bg-slate-50 pb-8 pt-8"
-    >
-      <h2 class="mx-12 mb-2 text-xl font-semibold">
-        Current Weather
-        <span
-          id="current-time"
-          class="ml-2 self-end text-sm text-gray-500"
-        ></span>
-      </h2>
-      <div id="current-weather" class="px-8">
-        <!-- Generate current weather data here -->
-      </div>
-    </section>
+    <div class="mx-4">
+      <section
+        class="mx-auto mb-8 max-w-[1200px] rounded-3xl border border-gray-200 bg-slate-50 pb-8 pt-8"
+      >
+        <h2 class="mx-12 mb-2 text-xl font-semibold">
+          Current Weather
+          <span
+            id="current-time"
+            class="ml-2 self-end text-sm text-gray-500"
+          ></span>
+        </h2>
+        <div id="current-weather" class="px-8">
+          <!-- Generate current weather data here -->
+        </div>
+      </section>
+    </div>
 
     <footer class="fixed bottom-0 w-full bg-gray-200 p-2">
       <div class="flex items-center justify-center gap-4 text-xs">
