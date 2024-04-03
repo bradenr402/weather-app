@@ -1,6 +1,14 @@
 export default function generateWeatherList() {
   const weatherList = document.createElement('ul');
-  weatherList.classList.add('flex', 'flex-wrap', 'gap-4');
+  weatherList.classList.add(
+    'grid',
+    'grid-cols-1',
+    'sm:grid-cols-2',
+    'md:grid-cols-3',
+    'lg:grid-cols-4',
+    'gap-4',
+    'place-items-center',
+  );
 
   const dataItems = [
     { id: 'condition', title: 'Conditions' },
@@ -18,17 +26,14 @@ export default function generateWeatherList() {
     listItem.id = item.id;
     listItem.classList.add(
       'relative',
+      'list-none',
       'rounded-2xl',
       'text-center',
       'bg-sky-300',
       'bg-opacity-30',
       'p-6',
-      'w-[200px]',
-      'min-w-[200px]',
-      'h-[200px]',
+      'size-[200px]',
       'flex',
-      'flex-grow',
-      'list-none',
       'flex-col',
       'items-center',
       'justify-center',
