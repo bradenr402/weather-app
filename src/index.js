@@ -4,13 +4,13 @@ import getLastLocation from './get-last-location';
 import updateWeatherData from './update-weather-data';
 import updateForecastData from './update-forecast-data';
 import generateForecastList from './generate-forecast-list';
-import generateDataList from './generate-data-list';
+import generateWeatherList from './generate-weather-list';
 import geoLocate from './geolocation';
 
 window.addEventListener('load', () => {
   const weatherContainer = document.getElementById('current-weather');
-  const dataList = generateDataList();
-  weatherContainer.appendChild(dataList);
+  const weatherList = generateWeatherList();
+  weatherContainer.appendChild(weatherList);
 
   const forecastContainer = document.getElementById('weather-forecast');
   // Generate forecast lists for numbers 1 through 6

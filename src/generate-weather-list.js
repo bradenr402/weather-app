@@ -1,6 +1,6 @@
-export default function generateDataList() {
-  const dataList = document.createElement('ul');
-  dataList.classList.add('flex', 'flex-wrap', 'gap-4');
+export default function generateWeatherList() {
+  const weatherList = document.createElement('ul');
+  weatherList.classList.add('flex', 'flex-wrap', 'gap-4');
 
   const dataItems = [
     { id: 'condition', title: 'Conditions' },
@@ -57,8 +57,8 @@ export default function generateDataList() {
     containerDiv.append(dataParagraph, notesParagraph);
     listItem.appendChild(titleSpan);
     listItem.appendChild(containerDiv);
-    dataList.appendChild(listItem);
+    weatherList.appendChild(listItem);
   });
 
-  return dataList;
+  return weatherList;
 }
