@@ -21,17 +21,16 @@ export default function generateForecastList(index) {
   forecastList.id = `forecast-${index}`;
   forecastList.className = 'forecast-list';
   forecastList.classList.add(
-    'bg-sky-300',
-    'bg-opacity-30',
     'rounded-2xl',
     'text-center',
+    'bg-sky-300/30',
     'p-6',
     'w-[225px]',
-    'min-w-[225px]',
+    'flex-shrink-0',
     'grid',
     'grid-cols-2',
-    'gap-y-6',
     'gap-x-2',
+    'gap-y-8',
   );
 
   const headerDiv = document.createElement('div');

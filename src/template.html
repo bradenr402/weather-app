@@ -11,29 +11,63 @@
   </head>
   <body class="mb-20 overflow-x-hidden font-sans">
     <header class="mx-8 mb-6 mt-12 flex items-center justify-between">
-      <form id="search-form" class="flex max-w-screen-lg items-center">
-        <div
-          class="max-w-3/4 group relative flex w-[300px] transition-width duration-300 ease-in-out focus-within:w-[600px]"
-        >
+      <form id="search-form" class="group flex max-w-screen-lg items-center">
+        <label for="search" class="sr-only">Search</label>
+        <div class="relative w-[500px]">
+          <div
+            class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              aria-hidden="true"
+              class="size-5 text-gray-400 transition-colors group-focus-within:text-[#1da1f2]"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+          </div>
           <input
             type="search"
             name="search"
             id="search"
-            class="flex-grow rounded-full border border-gray-400 py-2 pl-12 pr-5 text-xl outline-none ring-1 ring-transparent transition-all duration-300 ease-in-out hover:border-blue-400 focus:border-blue-400 focus:ring-blue-400"
             placeholder="Search..."
             autocomplete="off"
+            class="block w-full rounded-lg border border-gray-300 bg-slate-50 p-4 ps-10 text-lg text-gray-900 transition-colors focus:border-[#1da1f2] focus:outline-none focus:ring-1 focus:ring-[#1da1f2] group-hover:border-[#1da1f2]"
           />
-          <span
-            class="material-symbols-outlined absolute left-4 top-1/2 w-5 -translate-y-1/2 text-gray-400 transition-colors duration-300 ease-in-out group-focus-within:text-blue-400 group-hover:text-blue-400"
-            >search</span
+          <button
+            type="submit"
+            class="absolute bottom-3 end-3 rounded-lg bg-[#1da1f2] px-4 py-2 text-sm font-medium text-white hover:bg-[#1da1f2]/90 focus:outline-none focus:ring-2 focus:ring-[#1da1f2]/50"
           >
+            Search
+          </button>
         </div>
       </form>
+
       <button
         id="current-location"
-        class="rounded-full bg-blue-500 px-4 py-2 text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
+        class="inline-flex items-center gap-2 rounded-lg bg-[#1da1f2] py-2.5 pl-4 pr-5 text-center font-medium text-white hover:bg-[#1da1f2]/90 focus:outline-none focus:ring-2 focus:ring-[#1da1f2]/50"
       >
-        Show weather for my location
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="size-6"
+        >
+          <path
+            fill-rule="evenodd"
+            d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        Use My Location
       </button>
     </header>
     <h1 class="mb-4 flex items-center justify-center text-4xl">
@@ -45,7 +79,7 @@
 
     <div class="mx-4">
       <section
-        class="mx-auto mb-8 max-w-screen-lg rounded-3xl border border-gray-200 bg-slate-50 pt-8"
+        class="mx-auto mb-8 max-w-screen-lg rounded-3xl border border-gray-300 bg-slate-50 pt-8"
       >
         <h2 class="mx-12 mb-2 text-xl font-semibold">
           <span id="days"></span>
@@ -62,7 +96,7 @@
 
     <div class="mx-4">
       <section
-        class="mx-auto mb-8 max-w-screen-lg rounded-3xl border border-gray-200 bg-slate-50 pb-8 pt-8"
+        class="mx-auto mb-8 max-w-screen-lg rounded-3xl border border-gray-300 bg-slate-50 pb-8 pt-8"
       >
         <h2 class="mx-12 mb-2 text-xl font-semibold">
           Current Weather
@@ -77,7 +111,7 @@
       </section>
     </div>
 
-    <footer class="fixed bottom-0 w-full bg-gray-200 p-2">
+    <footer class="fixed bottom-0 w-full bg-slate-200 p-2">
       <div class="flex items-center justify-center gap-4 text-xs">
         Powered by
         <a href="https://www.weatherapi.com/" title="Free Weather API"
