@@ -1,7 +1,7 @@
 import saveLastLocation from './save-last-location';
 
 const API_KEY = '3b5e7413d81949a3b17232658242103';
-export const DAYS = 10;
+export const DAYS = 3;
 
 export default async function fetchWeatherData(search) {
   const response = await fetch(
