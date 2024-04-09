@@ -1,4 +1,4 @@
-import updateForecastDataPoint from './update-forecast-data-point';
+import updateDailyForecastDataPoint from './update-daily-forecast-data-point';
 import { DAYS } from './fetch-weather-data';
 
 function formatTime(time) {
@@ -14,54 +14,51 @@ function formatTime(time) {
   });
 }
 
-export default function updateForecastData(data) {
-  const forecastDaysTitle = document.getElementById('days');
-  forecastDaysTitle.textContent = DAYS;
-
+export default function updateDailyForecastData(data) {
   for (let day = 0; day < DAYS; day++) {
     const forecastData = data.forecast.forecastday[day];
-    updateForecastDataPoint({
+    updateDailyForecastDataPoint({
       day,
       dataPoint: 'condition',
       conditionCode: forecastData.day.condition.code,
       text: forecastData.day.condition.text,
       notes: '',
     });
-    updateForecastDataPoint({
+    updateDailyForecastDataPoint({
       day,
       dataPoint: 'max-temp',
       text: `${forecastData.day.maxtemp_f}°F`,
       notes: 'high',
     });
-    updateForecastDataPoint({
+    updateDailyForecastDataPoint({
       day,
       dataPoint: 'min-temp',
       text: `${forecastData.day.mintemp_f}°F`,
       notes: 'low',
     });
 
-    updateForecastDataPoint({
+    updateDailyForecastDataPoint({
       day,
       dataPoint: 'total-precipitation',
       text: `${forecastData.day.totalprecip_in} in`,
       notes: 'precip',
     });
 
-    updateForecastDataPoint({
+    updateDailyForecastDataPoint({
       day,
       dataPoint: 'rain-chance',
       text: `${forecastData.day.daily_chance_of_rain}%`,
       notes: 'chance',
     });
 
-    updateForecastDataPoint({
+    updateDailyForecastDataPoint({
       day,
       dataPoint: 'sunrise',
       text: formatTime(forecastData.astro.sunrise),
       notes: 'sunrise',
     });
 
-    updateForecastDataPoint({
+    updateDailyForecastDataPoint({
       day,
       dataPoint: 'sunset',
       text: formatTime(forecastData.astro.sunset),

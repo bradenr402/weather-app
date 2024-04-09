@@ -16,10 +16,9 @@ function getDayName(daysInFuture) {
   return days[futureDay];
 }
 
-export default function generateForecastList(index) {
+export default function generateDailyForecastList(index) {
   const forecastList = document.createElement('ul');
   forecastList.id = `forecast-${index}`;
-  forecastList.className = 'forecast-list';
   forecastList.classList.add(
     'rounded-2xl',
     'text-center',

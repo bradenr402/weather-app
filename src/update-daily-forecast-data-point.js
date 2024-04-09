@@ -53,7 +53,7 @@ function backgroundClass(conditionCode) {
   return bgClasses[conditionCode] || 'bg-white';
 }
 
-export default function updateForecastDataPoint({
+export default function updateDailyForecastDataPoint({
   day,
   dataPoint,
   conditionCode,

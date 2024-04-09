@@ -82,14 +82,29 @@
         class="mx-auto max-w-screen-lg rounded-3xl border border-gray-300 bg-slate-50 pt-8"
       >
         <h2 class="mx-12 mb-2 text-xl font-semibold">
-          <span id="days"></span>
-          Day Forecast
+          Hourly Forecast
+        </h2>
+        <div
+          id="hourly-forecast"
+          class="flex gap-4 overflow-x-auto px-8 pb-8"
+        >
+        <!-- Generate hourly forecast data here -->
+      </div>
+      </section>
+    </div>
+
+    <div class="mx-4 mb-4">
+      <section
+        class="mx-auto max-w-screen-lg rounded-3xl border border-gray-300 bg-slate-50 pt-8"
+      >
+        <h2 class="mx-12 mb-2 text-xl font-semibold">
+          Daily Forecast
         </h2>
         <div
           id="weather-forecast"
-          class="flex gap-4 overflow-x-scroll px-8 pb-8"
+          class="flex gap-4 overflow-x-auto px-8 pb-8"
         >
-          <!-- Generate forecast data here -->
+          <!-- Generate daily forecast data here -->
         </div>
       </section>
     </div>
