@@ -17,12 +17,15 @@ function formatTime(time) {
 export default function updateDailyForecastData(data) {
   for (let day = 0; day < DAYS; day++) {
     const forecastData = data.forecast.forecastday[day];
+
+    const weatherIcon = document.getElementById(`forecast-weather-icon-${day}`);
+    weatherIcon.src = `https:${forecastData.day.condition.icon}`;
+
     updateDailyForecastDataPoint({
       day,
       dataPoint: 'condition',
       conditionCode: forecastData.day.condition.code,
       text: forecastData.day.condition.text,
-      notes: '',
     });
     updateDailyForecastDataPoint({
       day,
@@ -39,16 +42,9 @@ export default function updateDailyForecastData(data) {
 
     updateDailyForecastDataPoint({
       day,
-      dataPoint: 'total-precipitation',
-      text: `${forecastData.day.totalprecip_in} in`,
-      notes: 'precip',
-    });
-
-    updateDailyForecastDataPoint({
-      day,
-      dataPoint: 'rain-chance',
+      dataPoint: 'precipitation-chance',
       text: `${forecastData.day.daily_chance_of_rain}%`,
-      notes: 'chance',
+      notes: 'chance of precipitation',
     });
 
     updateDailyForecastDataPoint({

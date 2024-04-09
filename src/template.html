@@ -10,7 +10,7 @@
     <title>Weather App</title>
   </head>
   <body class="mb-16 overflow-x-hidden font-sans">
-    <header class="mx-8 mb-6 mt-12 flex items-center justify-between">
+    <header class="m-8 flex items-center justify-between">
       <form id="search-form" class="group flex max-w-screen-lg items-center">
         <label for="search" class="sr-only">Search</label>
         <div class="relative w-[500px]">
@@ -81,7 +81,7 @@
       <section
         class="mx-auto max-w-screen-lg rounded-3xl border border-gray-300 bg-slate-50 pt-8"
       >
-        <h2 class="mx-12 mb-2 text-xl font-semibold">
+        <h2 class="mx-12 mb-2 text-xl font-semibold font-small-caps">
           Hourly Forecast
         </h2>
         <div
@@ -97,11 +97,11 @@
       <section
         class="mx-auto max-w-screen-lg rounded-3xl border border-gray-300 bg-slate-50 pt-8"
       >
-        <h2 class="mx-12 mb-2 text-xl font-semibold">
+        <h2 class="mx-12 mb-2 text-xl font-semibold font-small-caps">
           Daily Forecast
         </h2>
         <div
-          id="weather-forecast"
+          id="daily-forecast"
           class="flex gap-4 overflow-x-auto px-8 pb-8"
         >
           <!-- Generate daily forecast data here -->
@@ -113,7 +113,7 @@
       <section
         class="mx-auto max-w-screen-lg rounded-3xl border border-gray-300 bg-slate-50 pb-8 pt-8"
       >
-        <h2 class="mx-12 mb-2 text-xl font-semibold">
+        <h2 class="mx-12 mb-2 text-xl font-semibold font-small-caps">
           Current Weather
           <span
             id="current-time"

@@ -1,14 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 
-module.exports = {
-  content: ['./src/template.html', './dist/index.html', './src/*.js'],
-  theme: {
-    extend: {
-      transitionProperty: {
-        width: 'width',
-      },
-    },
-  },
-  plugins: [],
-  mode: 'jit',
+export const content = [
+  './src/template.html',
+  './dist/index.html',
+  './src/*.js',
+];
+export const theme = {
+  extend: {},
 };
+export const variants = {};
+export const plugins = [
+  ({ addUtilities }) => {
+    const newUtilities = {
+      '.font-small-caps': {
+        fontVariant: 'small-caps',
+      },
+    };
+    addUtilities(newUtilities, ['responsive', 'hover']);
+  },
+];
+export const mode = 'jit';
