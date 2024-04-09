@@ -20,46 +20,52 @@ export default function updateForecastData(data) {
 
   for (let day = 0; day < DAYS; day++) {
     const forecastData = data.forecast.forecastday[day];
-    updateForecastDataPoint(day, 'condition', forecastData.day.condition.text);
-    updateForecastDataPoint(
+    updateForecastDataPoint({
       day,
-      'max-temp',
-      `${forecastData.day.maxtemp_f}°F`,
-      'high',
-    );
-    updateForecastDataPoint(
+      dataPoint: 'condition',
+      conditionCode: forecastData.day.condition.code,
+      text: forecastData.day.condition.text,
+      notes: '',
+    });
+    updateForecastDataPoint({
       day,
-      'min-temp',
-      `${forecastData.day.mintemp_f}°F`,
-      'low',
-    );
+      dataPoint: 'max-temp',
+      text: `${forecastData.day.maxtemp_f}°F`,
+      notes: 'high',
+    });
+    updateForecastDataPoint({
+      day,
+      dataPoint: 'min-temp',
+      text: `${forecastData.day.mintemp_f}°F`,
+      notes: 'low',
+    });
 
-    updateForecastDataPoint(
+    updateForecastDataPoint({
       day,
-      'total-precipitation',
-      `${forecastData.day.totalprecip_in} in`,
-      'precip',
-    );
+      dataPoint: 'total-precipitation',
+      text: `${forecastData.day.totalprecip_in} in`,
+      notes: 'precip',
+    });
 
-    updateForecastDataPoint(
+    updateForecastDataPoint({
       day,
-      'rain-chance',
-      `${forecastData.day.daily_chance_of_rain}%`,
-      'chance',
-    );
+      dataPoint: 'rain-chance',
+      text: `${forecastData.day.daily_chance_of_rain}%`,
+      notes: 'chance',
+    });
 
-    updateForecastDataPoint(
+    updateForecastDataPoint({
       day,
-      'sunrise',
-      formatTime(forecastData.astro.sunrise),
-      'sunrise',
-    );
+      dataPoint: 'sunrise',
+      text: formatTime(forecastData.astro.sunrise),
+      notes: 'sunrise',
+    });
 
-    updateForecastDataPoint(
+    updateForecastDataPoint({
       day,
-      'sunset',
-      formatTime(forecastData.astro.sunset),
-      'sunset',
-    );
+      dataPoint: 'sunset',
+      text: formatTime(forecastData.astro.sunset),
+      notes: 'sunset',
+    });
   }
 }

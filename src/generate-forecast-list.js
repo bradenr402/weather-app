@@ -23,7 +23,8 @@ export default function generateForecastList(index) {
   forecastList.classList.add(
     'rounded-2xl',
     'text-center',
-    'bg-sky-300/30',
+    'border',
+    'border-gray-300',
     'p-6',
     'w-[225px]',
     'flex-shrink-0',
