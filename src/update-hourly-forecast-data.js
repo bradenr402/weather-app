@@ -108,6 +108,7 @@ export default function updateHourlyForecastData(data) {
     updateHourlyForecastDataPoint({
       hour,
       dataPoint: 'condition',
+      isDay: hourlyData.is_day,
       conditionCode: hourlyData.condition.code,
       text: hourlyData.condition.text.trim(),
       notes: `${hourlyData.cloud}% cloud coverage`,
