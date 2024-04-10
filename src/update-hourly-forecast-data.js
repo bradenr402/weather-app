@@ -59,9 +59,7 @@ function updateCurrentHourForecastData(data) {
 export default function updateHourlyForecastData(data) {
   updateCurrentHourForecastData(data);
 
-  const nextHour = new Date().getHours() + 1;
-
-  for (let hour = nextHour; hour < 24; hour++) {
+  for (let hour = 0; hour < 24; hour++) {
     const hourlyData = data.forecast.forecastday[0].hour[hour];
 
     const weatherIcon = document.getElementById(`hourly-weather-icon-${hour}`);

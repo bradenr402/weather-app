@@ -1,7 +1,6 @@
 function getHour(hour) {
   const now = new Date().getHours();
 
-  if (hour < now) return null;
   if (hour === now) return 'Now';
 
   const hours = [
@@ -35,8 +34,6 @@ function getHour(hour) {
 }
 
 export default function generateHourlyForecastList(hour) {
-  if (getHour(hour) === null) return null;
-
   const hourlyList = document.createElement('ul');
   hourlyList.id = `hourly-${hour}`;
   hourlyList.classList.add(
