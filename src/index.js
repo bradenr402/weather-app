@@ -72,8 +72,14 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-const currentLocationBtn = document.getElementById('current-location');
-currentLocationBtn.addEventListener('click', () => {
+const locationBtn = document.getElementById('current-location');
+const locationIcon = document.getElementById('location-icon');
+const spinnerIcon = document.getElementById('spinner-icon');
+locationBtn.addEventListener('click', () => {
+  locationIcon.classList.add('hidden');
+  locationBtn.disabled = true;
+  spinnerIcon.classList.remove('hidden');
+
   geoLocate()
     .then((location) => {
       const currentLocation = `${location.lat},${location.lng}`;
@@ -82,9 +88,17 @@ currentLocationBtn.addEventListener('click', () => {
         updateDailyForecastData(data);
         updateHourlyForecastData(data);
       });
+
+      locationIcon.classList.remove('hidden');
+      locationBtn.disabled = false;
+      spinnerIcon.classList.add('hidden');
     })
     .catch((error) => {
       // eslint-disable-next-line no-console
       console.error(error);
+
+      locationIcon.classList.remove('hidden');
+      locationBtn.disabled = false;
+      spinnerIcon.classList.add('hidden');
     });
 });
