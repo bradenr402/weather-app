@@ -45,7 +45,7 @@
             </kbd>
             <button
               type="submit"
-              class="rounded-lg bg-[#1da1f2] px-4 py-2 text-sm font-medium text-white hover:bg-[#1da1f2]/90 focus:outline-none focus:ring-2 focus:ring-[#1da1f2]/50"
+              class="rounded-lg bg-[#1da1f2] px-4 py-2 text-sm font-medium text-white hover:bg-[#1da1f2]/80 focus:outline-none focus:ring-2 focus:ring-[#1da1f2]/50"
             >
               Search
             </button>
@@ -75,13 +75,13 @@
       <button
         type="button"
         id="settings-btn"
-        class="ml-8 border-none bg-transparent transition-transform duration-700 hover:rotate-180"
+        class="group ml-8 inline-flex size-10 items-center justify-center rounded-lg bg-transparent text-sm hover:bg-slate-100"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          class="size-6"
+          class="size-6 transition-transform duration-700 group-hover:rotate-180"
         >
           <path
             fill-rule="evenodd"
@@ -89,6 +89,8 @@
             clip-rule="evenodd"
           />
         </svg>
+
+        <span class="sr-only">Settings</span>
       </button>
     </header>
     <h1 class="mb-4 flex items-center justify-center text-4xl">
@@ -177,23 +179,19 @@
             <button
               id="close-settings-btn"
               type="button"
-              class="ms-auto inline-flex size-8 items-center justify-center rounded-lg bg-transparent text-sm text-gray-400 hover:bg-gray-200 hover:text-gray-900"
+              class="ms-auto inline-flex size-8 items-center justify-center rounded-lg bg-transparent text-sm hover:bg-gray-200 hover:text-gray-900"
             >
               <svg
-                class="h-3 w-3"
-                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 14"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                class="size-6"
               >
                 <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                  d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z"
                 />
               </svg>
+
               <span class="sr-only">Close modal</span>
             </button>
           </div>
@@ -202,9 +200,7 @@
           <div class="space-y-4 p-5 md:p-5">
             <form id="settings-form" class="space-y-6">
               <fieldset>
-                <legend class="font-semibold">
-                  Temperature Unit
-                </legend>
+                <legend class="font-semibold">Temperature Unit</legend>
                 <p class="mt-1 text-sm text-gray-600">
                   Select your preferred temperature unit.
                 </p>
@@ -216,9 +212,7 @@
                       type="radio"
                       class="size-4 border-gray-300 text-[#1da1f2] focus:ring-[#1da1f2]"
                     />
-                    <label
-                      for="F"
-                      class="block text-sm font-medium"
+                    <label for="F" class="block text-sm font-medium"
                       >Fahrenheit (°F)</label
                     >
                   </div>
@@ -229,9 +223,7 @@
                       type="radio"
                       class="size-4 border-gray-300 text-[#1da1f2] focus:ring-[#1da1f2]"
                     />
-                    <label
-                      for="C"
-                      class="block text-sm font-medium"
+                    <label for="C" class="block text-sm font-medium"
                       >Celsius (°C)</label
                     >
                   </div>
@@ -239,9 +231,7 @@
               </fieldset>
 
               <fieldset>
-                <legend class="font-semibold">
-                  Distance Unit
-                </legend>
+                <legend class="font-semibold">Distance Unit</legend>
                 <p class="mt-1 text-sm text-gray-600">
                   Select your preferred distance unit.
                 </p>
@@ -253,9 +243,7 @@
                       type="radio"
                       class="size-4 border-gray-300 text-[#1da1f2] focus:ring-[#1da1f2]"
                     />
-                    <label
-                      for="mi"
-                      class="block text-sm font-medium"
+                    <label for="mi" class="block text-sm font-medium"
                       >Miles (mi)</label
                     >
                   </div>
@@ -266,9 +254,7 @@
                       type="radio"
                       class="size-4 border-gray-300 text-[#1da1f2] focus:ring-[#1da1f2]"
                     />
-                    <label
-                      for="km"
-                      class="block text-sm font-medium"
+                    <label for="km" class="block text-sm font-medium"
                       >Kilometers (km)</label
                     >
                   </div>
@@ -276,9 +262,7 @@
               </fieldset>
 
               <fieldset>
-                <legend class="font-semibold">
-                  Measurement Unit
-                </legend>
+                <legend class="font-semibold">Measurement Unit</legend>
                 <p class="mt-1 text-sm text-gray-600">
                   Select your preferred measurement unit.
                 </p>
@@ -290,9 +274,7 @@
                       type="radio"
                       class="size-4 border-gray-300 text-[#1da1f2] focus:ring-[#1da1f2]"
                     />
-                    <label
-                      for="in"
-                      class="block text-sm font-medium"
+                    <label for="in" class="block text-sm font-medium"
                       >Inches (in)</label
                     >
                   </div>
@@ -303,9 +285,7 @@
                       type="radio"
                       class="size-4 border-gray-300 text-[#1da1f2] focus:ring-[#1da1f2]"
                     />
-                    <label
-                      for="mm"
-                      class="block text-sm font-medium"
+                    <label for="mm" class="block text-sm font-medium"
                       >Millimeters (mm)</label
                     >
                   </div>
@@ -329,7 +309,7 @@
 
             <button
               type="button"
-              class="ms-3 grow rounded-lg bg-[#1da1f2] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#1da1f2]/90 focus:outline-none focus:ring-2 focus:ring-[#1da1f2]/50"
+              class="ms-3 grow rounded-lg bg-[#1da1f2] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#1da1f2]/80 focus:outline-none focus:ring-2 focus:ring-[#1da1f2]/50"
             >
               Save
             </button>
