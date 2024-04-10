@@ -123,8 +123,16 @@
       <section
         class="mx-auto max-w-screen-lg rounded-3xl border border-slate-300 bg-slate-50 pt-8"
       >
-        <h2 class="mx-12 mb-2 text-xl font-semibold font-small-caps">
-          Hourly Forecast
+        <h2
+          class="mx-12 mb-2 flex items-center justify-between text-xl font-semibold font-small-caps"
+        >
+          <span>Hourly Forecast</span>
+          <button
+            id="scroll-to-current-hour"
+            class="rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 text-sm font-medium hover:bg-slate-100 hover:text-[#1da1f2] focus:z-10 focus:border-[#1da1f2] focus:outline-none focus:ring-2 focus:ring-[#1da1f2]/50"
+          >
+            Scroll to now
+          </button>
         </h2>
         <div
           id="hourly-forecast"

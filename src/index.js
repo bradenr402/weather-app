@@ -10,6 +10,15 @@ import generateHourlyForecastList from './generate-hourly-forecast-list';
 import updateHourlyForecastData from './update-hourly-forecast-data';
 import './save-settings';
 
+function scrollToCurrentHour() {
+  const hourlyContainer = document.getElementById('hourly-forecast');
+  const exampleWidth = document.getElementById('hourly-0').clientWidth;
+
+  hourlyContainer.scrollTo((exampleWidth + 18) * new Date().getHours(), 0);
+}
+
+document.getElementById('scroll-to-current-hour').onclick = scrollToCurrentHour;
+
 window.addEventListener('load', () => {
   const weatherContainer = document.getElementById('current-weather');
   const weatherList = generateWeatherList();
@@ -28,21 +37,12 @@ window.addEventListener('load', () => {
   }
 
   const lastLocation = getLastLocation();
-  const hourlyScrollWidth = hourlyContainer.scrollWidth;
   fetchWeatherData(lastLocation).then((data) => {
     updateWeatherData(data);
     updateDailyForecastData(data);
     updateHourlyForecastData(data);
 
-    setTimeout(() => {
-      const exampleWidth = document.getElementById('hourly-0').clientWidth;
-      if (hourlyContainer.scrollLeft !== hourlyScrollWidth) {
-        hourlyContainer.scrollTo(
-          (exampleWidth + 18) * new Date().getHours(),
-          0,
-        );
-      }
-    }, 500);
+    setTimeout(() => scrollToCurrentHour(), 500);
   });
 });
 
