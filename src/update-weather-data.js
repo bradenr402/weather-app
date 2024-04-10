@@ -26,6 +26,39 @@ export default function updateWeatherData(data) {
   const weatherIcon = document.getElementById('weather-icon');
   weatherIcon.src = `https:${data.current.condition.icon}`;
 
+  const tempUnit = localStorage.getItem('temperatureUnit') || 'F';
+  let tempData;
+  let feelslikeData;
+  if (tempUnit === 'C') {
+    tempData = data.current.temp_c;
+    feelslikeData = data.current.feelslike_c;
+  } else {
+    tempData = data.current.temp_f;
+    feelslikeData = data.current.feelslike_f;
+  }
+
+  const distanceUnit = localStorage.getItem('distanceUnit') || 'mi';
+  let visibilityData;
+  let windData;
+  let gustData;
+  let speedUnit;
+  if (distanceUnit === 'km') {
+    visibilityData = data.current.vis_km;
+    windData = data.current.wind_kph;
+    gustData = data.current.gust_kph;
+    speedUnit = 'kph';
+  } else {
+    visibilityData = data.current.vis_miles;
+    windData = data.current.wind_mph;
+    gustData = data.current.gust_mph;
+    speedUnit = 'mph';
+  }
+
+  const measurementUnit = localStorage.getItem('measurementUnit') || 'in';
+  let precipitationData;
+  if (measurementUnit === 'mm') precipitationData = data.current.precip_mm;
+  else precipitationData = data.current.precip_in;
+
   updateWeatherDataPoint({
     dataPoint: 'condition',
     conditionCode: data.current.condition.code,
@@ -35,14 +68,14 @@ export default function updateWeatherData(data) {
 
   updateWeatherDataPoint({
     dataPoint: 'temperature',
-    text: data.current.temp_f,
-    notes: `Feels like ${data.current.feelslike_f}°F`,
+    text: `${tempData}°${tempUnit}`,
+    notes: `Feels like ${feelslikeData}°${tempUnit}`,
   });
 
   updateWeatherDataPoint({
     dataPoint: 'precipitation',
     text: `${data.forecast.forecastday[0].day.daily_chance_of_rain}%`,
-    notes: `${data.current.precip_in} in`,
+    notes: `${precipitationData} ${measurementUnit}`,
   });
 
   updateWeatherDataPoint({
@@ -52,7 +85,7 @@ export default function updateWeatherData(data) {
 
   updateWeatherDataPoint({
     dataPoint: 'visibility',
-    text: `${data.current.vis_miles} mi`,
+    text: `${visibilityData} ${distanceUnit}`,
   });
 
   updateWeatherDataPoint({
@@ -68,7 +101,7 @@ export default function updateWeatherData(data) {
 
   updateWeatherDataPoint({
     dataPoint: 'wind',
-    text: `${data.current.wind_mph} mph ${data.current.wind_dir}`,
-    notes: `Gusts of wind up to ${data.current.gust_mph} mph`,
+    text: `${windData} ${speedUnit} ${data.current.wind_dir}`,
+    notes: `Gusts of wind up to ${gustData} ${speedUnit}`,
   });
 }

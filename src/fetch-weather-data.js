@@ -13,6 +13,7 @@ export default async function fetchWeatherData(search) {
   console.log(data);
 
   saveLastLocation(data.location);
+  localStorage.setItem('weatherData', JSON.stringify(data));
 
   return data;
 }

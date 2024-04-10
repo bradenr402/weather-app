@@ -21,6 +21,17 @@ export default function updateDailyForecastData(data) {
     const weatherIcon = document.getElementById(`forecast-weather-icon-${day}`);
     weatherIcon.src = `https:${forecastData.day.condition.icon}`;
 
+    const tempUnit = localStorage.getItem('temperatureUnit') || 'F';
+    let maxTempData;
+    let minTempData;
+    if (tempUnit === 'C') {
+      maxTempData = forecastData.day.maxtemp_c;
+      minTempData = forecastData.day.mintemp_c;
+    } else {
+      maxTempData = forecastData.day.maxtemp_f;
+      minTempData = forecastData.day.mintemp_f;
+    }
+
     updateDailyForecastDataPoint({
       day,
       dataPoint: 'condition',
@@ -31,14 +42,14 @@ export default function updateDailyForecastData(data) {
     updateDailyForecastDataPoint({
       day,
       dataPoint: 'max-temp',
-      text: `${forecastData.day.maxtemp_f}°F`,
+      text: `${maxTempData}°${tempUnit}`,
       notes: 'high',
     });
 
     updateDailyForecastDataPoint({
       day,
       dataPoint: 'min-temp',
-      text: `${forecastData.day.mintemp_f}°F`,
+      text: `${minTempData}°${tempUnit}`,
       notes: 'low',
     });
 

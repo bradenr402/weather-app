@@ -8,6 +8,7 @@ import generateWeatherList from './generate-weather-list';
 import geoLocate from './geolocation';
 import generateHourlyForecastList from './generate-hourly-forecast-list';
 import updateHourlyForecastData from './update-hourly-forecast-data';
+import './save-settings';
 
 window.addEventListener('load', () => {
   const weatherContainer = document.getElementById('current-weather');

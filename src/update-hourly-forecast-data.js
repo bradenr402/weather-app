@@ -6,6 +6,17 @@ function updateCurrentHourForecastData(data) {
   const weatherIcon = document.getElementById(`hourly-weather-icon-${hour}`);
   weatherIcon.src = `https:${data.current.condition.icon}`;
 
+  const tempUnit = localStorage.getItem('temperatureUnit') || 'F';
+  let tempData;
+  let feelslikeData;
+  if (tempUnit === 'C') {
+    tempData = data.current.temp_c;
+    feelslikeData = data.current.feelslike_c;
+  } else {
+    tempData = data.current.temp_f;
+    feelslikeData = data.current.feelslike_f;
+  }
+
   updateHourlyForecastDataPoint({
     hour,
     dataPoint: 'condition',
@@ -18,8 +29,8 @@ function updateCurrentHourForecastData(data) {
   updateHourlyForecastDataPoint({
     hour,
     dataPoint: 'temperature',
-    text: `${data.current.temp_f}°F`,
-    notes: `Feels like ${data.current.feelslike_f}°F`,
+    text: `${tempData}°${tempUnit}`,
+    notes: `Feels like ${feelslikeData}°${tempUnit}`,
   });
   updateHourlyForecastDataPoint({
     hour,
@@ -66,6 +77,34 @@ export default function updateHourlyForecastData(data) {
     const weatherIcon = document.getElementById(`hourly-weather-icon-${hour}`);
     weatherIcon.src = `https:${hourlyData.condition.icon}`;
 
+    const tempUnit = localStorage.getItem('temperatureUnit') || 'F';
+    let tempData;
+    let feelslikeData;
+    if (tempUnit === 'C') {
+      tempData = hourlyData.temp_c;
+      feelslikeData = hourlyData.feelslike_c;
+    } else {
+      tempData = hourlyData.temp_f;
+      feelslikeData = hourlyData.feelslike_f;
+    }
+
+    const distanceUnit = localStorage.getItem('distanceUnit') || 'mi';
+    let visibilityData;
+    let windData;
+    let gustData;
+    let speedUnit;
+    if (distanceUnit === 'km') {
+      visibilityData = hourlyData.vis_km;
+      windData = hourlyData.wind_kph;
+      gustData = hourlyData.gust_kph;
+      speedUnit = 'kph';
+    } else {
+      visibilityData = hourlyData.vis_miles;
+      windData = hourlyData.wind_mph;
+      gustData = hourlyData.gust_mph;
+      speedUnit = 'mph';
+    }
+
     updateHourlyForecastDataPoint({
       hour,
       dataPoint: 'condition',
@@ -77,8 +116,8 @@ export default function updateHourlyForecastData(data) {
     updateHourlyForecastDataPoint({
       hour,
       dataPoint: 'temperature',
-      text: `${hourlyData.temp_f}°F`,
-      notes: `Feels like ${hourlyData.feelslike_f}°F`,
+      text: `${tempData}°${tempUnit}`,
+      notes: `Feels like ${feelslikeData}°${tempUnit}`,
     });
     updateHourlyForecastDataPoint({
       hour,
@@ -97,7 +136,7 @@ export default function updateHourlyForecastData(data) {
     updateHourlyForecastDataPoint({
       hour,
       dataPoint: 'visibility',
-      text: `${hourlyData.vis_miles} mi`,
+      text: `${visibilityData} ${distanceUnit}`,
       notes: 'visiblity',
     });
 
@@ -111,8 +150,8 @@ export default function updateHourlyForecastData(data) {
     updateHourlyForecastDataPoint({
       hour,
       dataPoint: 'wind',
-      text: `${hourlyData.wind_mph} mph ${hourlyData.wind_dir}`,
-      notes: `gusts up to ${hourlyData.gust_mph} mph`,
+      text: `${windData} ${speedUnit} ${hourlyData.wind_dir}`,
+      notes: `gusts up to ${gustData} ${speedUnit}`,
     });
   }
 }
