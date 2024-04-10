@@ -10,6 +10,7 @@ function updateCurrentHourForecastData(data) {
     hour,
     dataPoint: 'condition',
     conditionCode: data.current.condition.code,
+    isDay: data.current.is_day,
     text: data.current.condition.text.trim(),
     notes: `${data.current.cloud}% cloud coverage`,
   });

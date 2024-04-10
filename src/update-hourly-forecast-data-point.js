@@ -4,6 +4,7 @@ export default function updateHourlyForecastDataPoint({
   hour,
   dataPoint,
   conditionCode,
+  isDay,
   text,
   notes = '',
 }) {
@@ -24,7 +25,7 @@ export default function updateHourlyForecastDataPoint({
 
     // adds new background color
     let bgClass = backgroundClass(conditionCode);
-    if (conditionCode === 1000 && text === 'Clear') bgClass = 'bg-sky-200/40'; // changes background color if it is nighttime
+    if (conditionCode === 1000 && !isDay) bgClass = 'bg-sky-200/40'; // changes background color if it is nighttime
     hourlyContainer.classList.add(bgClass);
   }
 
