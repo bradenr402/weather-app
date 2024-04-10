@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
   const hourlyContainer = document.getElementById('hourly-forecast');
   for (let i = 0; i < 24; i++) {
     const hourlyList = generateHourlyForecastList(i);
-    if (hourlyList !== null) hourlyContainer.appendChild(hourlyList);
+    hourlyContainer.appendChild(hourlyList);
   }
 
   const lastLocation = getLastLocation();
