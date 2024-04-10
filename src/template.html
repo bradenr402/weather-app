@@ -3,10 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
     <title>Weather App</title>
   </head>
   <body class="mb-16 overflow-x-hidden font-sans">
@@ -40,14 +36,20 @@
             id="search"
             placeholder="Search..."
             autocomplete="off"
-            class="block w-full rounded-lg border border-gray-300 bg-slate-50 p-4 ps-10 text-lg text-gray-900 transition-colors focus:border-[#1da1f2] focus:outline-none focus:ring-1 focus:ring-[#1da1f2] group-hover:border-[#1da1f2]"
+            class="block w-full rounded-xl border border-gray-300 bg-slate-50 p-4 ps-10 text-lg text-gray-900 transition-colors focus:border-[#1da1f2] focus:outline-none focus:ring-1 focus:ring-[#1da1f2] group-hover:border-[#1da1f2]"
           />
-          <button
-            type="submit"
-            class="absolute bottom-3 end-3 rounded-lg bg-[#1da1f2] px-4 py-2 text-sm font-medium text-white hover:bg-[#1da1f2]/90 focus:outline-none focus:ring-2 focus:ring-[#1da1f2]/50"
-          >
-            Search
-          </button>
+          <div class="absolute bottom-3 end-3 space-x-4">
+            <kbd class="font-sans font-medium text-slate-400">
+              <abbr title="Control" class="no-underline"> Ctrl </abbr>
+              K
+            </kbd>
+            <button
+              type="submit"
+              class="rounded-lg bg-[#1da1f2] px-4 py-2 text-sm font-medium text-white hover:bg-[#1da1f2]/90 focus:outline-none focus:ring-2 focus:ring-[#1da1f2]/50"
+            >
+              Search
+            </button>
+          </div>
         </div>
       </form>
 
@@ -81,15 +83,12 @@
       <section
         class="mx-auto max-w-screen-lg rounded-3xl border border-gray-300 bg-slate-50 pt-8"
       >
-        <h2 class="mx-12 mb-2 text-xl font-semibold font-small-caps">
+        <h2 class="font-small-caps mx-12 mb-2 text-xl font-semibold">
           Hourly Forecast
         </h2>
-        <div
-          id="hourly-forecast"
-          class="flex gap-4 overflow-x-auto px-8 pb-8"
-        >
-        <!-- Generate hourly forecast data here -->
-      </div>
+        <div id="hourly-forecast" class="flex gap-4 overflow-x-auto px-8 pb-8 scroll-smooth">
+          <!-- Generate hourly forecast data here -->
+        </div>
       </section>
     </div>
 
@@ -97,13 +96,10 @@
       <section
         class="mx-auto max-w-screen-lg rounded-3xl border border-gray-300 bg-slate-50 pt-8"
       >
-        <h2 class="mx-12 mb-2 text-xl font-semibold font-small-caps">
+        <h2 class="font-small-caps mx-12 mb-2 text-xl font-semibold">
           Daily Forecast
         </h2>
-        <div
-          id="daily-forecast"
-          class="flex gap-4 overflow-x-auto px-8 pb-8"
-        >
+        <div id="daily-forecast" class="flex gap-4 overflow-x-auto px-8 pb-8">
           <!-- Generate daily forecast data here -->
         </div>
       </section>
@@ -113,12 +109,12 @@
       <section
         class="mx-auto max-w-screen-lg rounded-3xl border border-gray-300 bg-slate-50 pb-8 pt-8"
       >
-        <h2 class="mx-12 mb-2 text-xl font-semibold font-small-caps">
+        <h2 class="font-small-caps mx-12 mb-2 text-xl font-semibold">
           Current Weather
-          <span
-            id="current-time"
-            class="ml-2 self-end text-sm text-gray-500"
-          ></span>
+          <span class="ml-2 self-end text-sm text-gray-500">
+            <span id="current-time"></span>
+            <span class="font-variant-normal text-xs">local time</span>
+          </span>
         </h2>
         <div id="current-weather" class="px-8">
           <!-- Generate current weather data here -->

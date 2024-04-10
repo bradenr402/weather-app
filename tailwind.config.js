@@ -15,6 +15,9 @@ export const plugins = [
       '.font-small-caps': {
         fontVariant: 'small-caps',
       },
+      '.font-variant-normal': {
+        fontVariant: 'normal',
+      },
     };
     addUtilities(newUtilities, ['responsive', 'hover']);
   },
