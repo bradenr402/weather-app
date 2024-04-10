@@ -59,6 +59,18 @@ form.addEventListener('submit', (event) => {
   form.reset();
 });
 
+document.addEventListener('keydown', (event) => {
+  if (event.ctrlKey && event.key === 'k') {
+    event.preventDefault(); // avoid triggering browser shortcuts
+    searchField.focus();
+  }
+
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    searchField.blur();
+  }
+});
+
 const currentLocationBtn = document.getElementById('current-location');
 currentLocationBtn.addEventListener('click', () => {
   geoLocate()
