@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
   </head>
-  <body class="mb-16 overflow-x-hidden font-sans text-gray-900">
+  <body class="mb-20 space-y-8 overflow-x-hidden font-sans text-gray-900">
     <header class="m-8 flex items-center justify-between">
       <form id="search-form" class="group flex max-w-screen-lg items-center">
         <label for="search" class="sr-only">Search</label>
@@ -112,14 +112,32 @@
         <span class="sr-only">Settings</span>
       </button>
     </header>
-    <h1 class="mb-4 flex items-center justify-center text-4xl font-medium">
+
+    <h1 class="flex items-center justify-center text-4xl font-medium">
       <img src="#" id="weather-icon" class="mr-2 aspect-square size-16" />
       <span id="city" class="pr-8">
         <!-- Insert city name here -->
       </span>
     </h1>
 
-    <div class="mx-4 mb-4">
+    <div class="mx-4">
+      <section
+        class="mx-auto max-w-screen-lg rounded-3xl border border-slate-300 bg-slate-50 pb-8 pt-8"
+      >
+        <h2 class="mx-12 mb-2 text-xl font-semibold font-small-caps">
+          Current Weather
+          <span class="ml-2 self-end text-sm text-gray-500 font-variant-normal">
+            <span id="current-time"></span>
+            <span class="text-xs">local time</span>
+          </span>
+        </h2>
+        <div id="current-weather" class="px-8">
+          <!-- Generate current weather data here -->
+        </div>
+      </section>
+    </div>
+
+    <div class="mx-4">
       <section
         class="mx-auto max-w-screen-lg rounded-3xl border border-slate-300 bg-slate-50 pt-8"
       >
@@ -143,7 +161,7 @@
       </section>
     </div>
 
-    <div class="mx-4 mb-4">
+    <div class="mx-4">
       <section
         class="mx-auto max-w-screen-lg rounded-3xl border border-slate-300 bg-slate-50 pt-8"
       >
@@ -152,23 +170,6 @@
         </h2>
         <div id="daily-forecast" class="flex gap-4 overflow-x-auto px-8 pb-8">
           <!-- Generate daily forecast data here -->
-        </div>
-      </section>
-    </div>
-
-    <div class="mx-4 mb-4">
-      <section
-        class="mx-auto max-w-screen-lg rounded-3xl border border-slate-300 bg-slate-50 pb-8 pt-8"
-      >
-        <h2 class="mx-12 mb-2 text-xl font-semibold font-small-caps">
-          Current Weather
-          <span class="ml-2 self-end text-sm text-gray-500">
-            <span id="current-time"></span>
-            <span class="text-xs font-variant-normal">local time</span>
-          </span>
-        </h2>
-        <div id="current-weather" class="px-8">
-          <!-- Generate current weather data here -->
         </div>
       </section>
     </div>

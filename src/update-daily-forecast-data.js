@@ -43,35 +43,35 @@ export default function updateDailyForecastData(data) {
       day,
       dataPoint: 'max-temp',
       text: `${maxTempData}°${tempUnit}`,
-      notes: 'high',
+      notes: 'High',
     });
 
     updateDailyForecastDataPoint({
       day,
       dataPoint: 'min-temp',
       text: `${minTempData}°${tempUnit}`,
-      notes: 'low',
+      notes: 'Low',
     });
 
     updateDailyForecastDataPoint({
       day,
       dataPoint: 'precipitation-chance',
       text: `${forecastData.day.daily_chance_of_rain}%`,
-      notes: 'chance of precipitation',
+      notes: 'Chance of precipitation',
     });
 
     updateDailyForecastDataPoint({
       day,
       dataPoint: 'sunrise',
       text: formatTime(forecastData.astro.sunrise),
-      notes: 'sunrise',
+      notes: 'Sunrise',
     });
 
     updateDailyForecastDataPoint({
       day,
       dataPoint: 'sunset',
       text: formatTime(forecastData.astro.sunset),
-      notes: 'sunset',
+      notes: 'Sunset',
     });
   }
 }

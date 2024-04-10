@@ -6,7 +6,8 @@ export default function generateWeatherList() {
     'sm:grid-cols-2',
     'md:grid-cols-3',
     'lg:grid-cols-4',
-    'gap-4',
+    'gap-y-4',
+    'gap-x-0',
     'place-items-center',
   );
 
@@ -29,7 +30,7 @@ export default function generateWeatherList() {
       'list-none',
       'rounded-2xl',
       'text-center',
-      'bg-white',
+      'bg-sky-200/40',
       'border',
       'border-gray-300',
       'p-6',
