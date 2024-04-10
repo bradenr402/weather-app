@@ -27,12 +27,14 @@ export default function updateDailyForecastData(data) {
       conditionCode: forecastData.day.condition.code,
       text: forecastData.day.condition.text,
     });
+
     updateDailyForecastDataPoint({
       day,
       dataPoint: 'max-temp',
       text: `${forecastData.day.maxtemp_f}°F`,
       notes: 'high',
     });
+
     updateDailyForecastDataPoint({
       day,
       dataPoint: 'min-temp',

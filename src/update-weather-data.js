@@ -32,33 +32,40 @@ export default function updateWeatherData(data) {
     text: data.current.condition.text.trim(),
     notes: `${data.current.cloud}% cloud coverage`,
   });
+
   updateWeatherDataPoint({
     dataPoint: 'temperature',
     text: data.current.temp_f,
     notes: `Feels like ${data.current.feelslike_f}°F`,
   });
+
   updateWeatherDataPoint({
     dataPoint: 'precipitation',
     text: `${data.forecast.forecastday[0].day.daily_chance_of_rain}%`,
     notes: `${data.current.precip_in} in`,
   });
+
   updateWeatherDataPoint({
     dataPoint: 'humidity',
     text: `${data.current.humidity}%`,
   });
+
   updateWeatherDataPoint({
     dataPoint: 'visibility',
     text: `${data.current.vis_miles} mi`,
   });
+
   updateWeatherDataPoint({
     dataPoint: 'air-quality',
     text: data.current.air_quality['us-epa-index'],
     notes: aqiValue(data.current.air_quality['us-epa-index']),
   });
+
   updateWeatherDataPoint({
     dataPoint: 'uv-index',
     text: data.current.uv,
   });
+
   updateWeatherDataPoint({
     dataPoint: 'wind',
     text: `${data.current.wind_mph} mph ${data.current.wind_dir}`,
