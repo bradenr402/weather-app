@@ -27,10 +27,21 @@ window.addEventListener('load', () => {
   }
 
   const lastLocation = getLastLocation();
+  const hourlyScrollWidth = hourlyContainer.scrollWidth;
   fetchWeatherData(lastLocation).then((data) => {
     updateWeatherData(data);
     updateDailyForecastData(data);
     updateHourlyForecastData(data);
+
+    setTimeout(() => {
+      const exampleWidth = document.getElementById('hourly-0').clientWidth;
+      if (hourlyContainer.scrollLeft !== hourlyScrollWidth) {
+        hourlyContainer.scrollTo(
+          (exampleWidth + 18) * new Date().getHours(),
+          0,
+        );
+      }
+    }, 500);
   });
 });
 
