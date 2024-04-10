@@ -26,31 +26,42 @@ export default function updateWeatherData(data) {
   const weatherIcon = document.getElementById('weather-icon');
   weatherIcon.src = `https:${data.current.condition.icon}`;
 
-  updateWeatherDataPoint(
-    'condition',
-    data.current.condition.text.trim(),
-    `${data.current.cloud}% cloud coverage`,
-  );
-  updateWeatherDataPoint(
-    'temperature',
-    `${data.current.temp_f}°F`,
-    `Feels like ${data.current.feelslike_f}°F`,
-  );
-  updateWeatherDataPoint(
-    'precipitation',
-    `${data.forecast.forecastday[0].day.daily_chance_of_rain}%`,
-    `${data.current.precip_in} in`,
-  );
-  updateWeatherDataPoint('humidity', `${data.current.humidity}%`);
-  updateWeatherDataPoint('visibility', `${data.current.vis_miles} mi`);
-  updateWeatherDataPoint(
-    'air-quality',
-    aqiValue(data.current.air_quality['us-epa-index']),
-  );
-  updateWeatherDataPoint('uv-index', data.current.uv);
-  updateWeatherDataPoint(
-    'wind',
-    `${data.current.wind_mph} mph ${data.current.wind_dir}`,
-    `Gusts of wind up to ${data.current.gust_mph} mph`,
-  );
+  updateWeatherDataPoint({
+    dataPoint: 'condition',
+    conditionCode: data.current.condition.code,
+    text: data.current.condition.text.trim(),
+    notes: `${data.current.cloud}% cloud coverage`,
+  });
+  updateWeatherDataPoint({
+    dataPoint: 'temperature',
+    text: data.current.temp_f,
+    notes: `Feels like ${data.current.feelslike_f}°F`,
+  });
+  updateWeatherDataPoint({
+    dataPoint: 'precipitation',
+    text: `${data.forecast.forecastday[0].day.daily_chance_of_rain}%`,
+    notes: `${data.current.precip_in} in`,
+  });
+  updateWeatherDataPoint({
+    dataPoint: 'humidity',
+    text: `${data.current.humidity}%`,
+  });
+  updateWeatherDataPoint({
+    dataPoint: 'visibility',
+    text: `${data.current.vis_miles} mi`,
+  });
+  updateWeatherDataPoint({
+    dataPoint: 'air-quality',
+    text: data.current.air_quality['us-epa-index'],
+    notes: aqiValue(data.current.air_quality['us-epa-index']),
+  });
+  updateWeatherDataPoint({
+    dataPoint: 'uv-index',
+    text: data.current.uv,
+  });
+  updateWeatherDataPoint({
+    dataPoint: 'wind',
+    text: `${data.current.wind_mph} mph ${data.current.wind_dir}`,
+    notes: `Gusts of wind up to ${data.current.gust_mph} mph`,
+  });
 }

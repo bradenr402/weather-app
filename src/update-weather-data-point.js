@@ -1,4 +1,8 @@
-export default function updateWeatherDataPoint(dataPoint, text, notes = '') {
+export default function updateWeatherDataPoint({
+  dataPoint,
+  text,
+  notes = '',
+}) {
   const weatherData = document.getElementById(`${dataPoint}-data`);
   weatherData.textContent = text;
 
