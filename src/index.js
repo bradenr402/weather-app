@@ -9,6 +9,7 @@ import generateHourlyForecastList from './generate-hourly-forecast-list';
 import updateHourlyForecastData from './update-hourly-forecast-data';
 import scrollToCurrentHour from './scroll-to-current-hour';
 import './scroll-to-beginning';
+import './scroll-to-end';
 import './save-settings';
 import './location-btn';
 import './search-form';
