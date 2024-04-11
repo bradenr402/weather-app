@@ -137,15 +137,36 @@
           class="relative mx-auto max-w-screen-lg rounded-3xl border border-slate-300 bg-slate-50 pt-8"
         >
           <h2
-            class="mx-12 mb-2 flex items-center justify-between text-xl font-semibold font-small-caps"
+            class="mx-12 mb-2 flex items-center gap-4 text-xl font-semibold font-small-caps"
           >
             <span>
               Hourly Forecast
-              <span class="ml-2 self-end text-sm text-gray-500">
+              <span class="ml-2 text-sm text-gray-500">
                 <span id="current-time"></span>
                 <span class="text-xs font-variant-normal">local time</span>
               </span>
             </span>
+
+            <button
+              id="scroll-to-beginning"
+              class="ml-auto rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 text-sm font-medium hover:bg-slate-100 hover:text-[#1da1f2] focus:z-10 focus:border-[#1da1f2] focus:outline-none focus:ring-2 focus:ring-[#1da1f2]/50"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="size-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5"
+                />
+              </svg>
+            </button>
+
             <button
               id="scroll-to-current-hour"
               class="rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 text-sm font-medium hover:bg-slate-100 hover:text-[#1da1f2] focus:z-10 focus:border-[#1da1f2] focus:outline-none focus:ring-2 focus:ring-[#1da1f2]/50"
