@@ -155,21 +155,47 @@
           </h2>
           <div
             id="hourly-forecast"
-            class="flex gap-4 overflow-x-auto scroll-smooth px-8 pb-8"
+            class="flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto scroll-smooth px-8 pb-8"
           >
             <!-- Generate hourly forecast data here -->
           </div>
           <button
             id="hourly-scroll-left"
-            class="absolute left-0 top-1/2 -translate-y-1/2 h-12 w-8 bg-gray-500/50"
+            class="absolute left-2 top-1/2 inline-flex size-12 -translate-y-1/2 transform items-center justify-center rounded-full bg-white text-gray-500 transition duration-300 hover:-translate-x-1 hover:bg-slate-50 hover:text-gray-900"
           >
-            left
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="mr-0.5 size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5 8.25 12l7.5-7.5"
+              />
+            </svg>
           </button>
           <button
             id="hourly-scroll-right"
-            class="absolute right-0 top-1/2 -translate-y-1/2 h-12 w-8 bg-gray-500/50"
+            class="absolute right-2 top-1/2 inline-flex size-12 -translate-y-1/2 transform items-center justify-center rounded-full bg-white text-gray-500 transition duration-300 hover:translate-x-1 hover:bg-slate-50 hover:text-gray-900"
           >
-            right
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="ml-0.5 size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m8.25 4.5 7.5 7.5-7.5 7.5"
+              />
+            </svg>
           </button>
         </section>
       </div>
@@ -181,7 +207,10 @@
           <h2 class="mx-12 mb-2 text-xl font-semibold font-small-caps">
             Daily Forecast
           </h2>
-          <div id="daily-forecast" class="flex gap-4 overflow-x-auto px-8 pb-8">
+          <div
+            id="daily-forecast"
+            class="flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-8 pb-8"
+          >
             <!-- Generate daily forecast data here -->
           </div>
         </section>

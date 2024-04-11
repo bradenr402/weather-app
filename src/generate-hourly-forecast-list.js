@@ -13,6 +13,7 @@ export default function generateHourlyForecastList(hour) {
     'flex',
     'flex-col',
     'gap-8',
+    'snap-start',
   );
 
   const headerDiv = document.createElement('div');
@@ -34,7 +35,6 @@ export default function generateHourlyForecastList(hour) {
     'text-lg',
     'font-small-caps',
   );
-  // hourTitle.textContent = getHour(hour);
 
   titleContainer.append(weatherIcon, hourTitle);
   headerDiv.appendChild(titleContainer);
