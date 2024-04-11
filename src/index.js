@@ -7,9 +7,10 @@ import generateDailyForecastList from './generate-daily-forecast-list';
 import generateWeatherList from './generate-weather-list';
 import generateHourlyForecastList from './generate-hourly-forecast-list';
 import updateHourlyForecastData from './update-hourly-forecast-data';
+import scrollToCurrentHour from './scroll-to-current-hour';
 import './save-settings';
 import './location-btn';
-import scrollToCurrentHour from './scroll-to-current-hour';
+import './search-form';
 
 document.getElementById('scroll-to-current-hour').onclick = () => {
   const data = JSON.parse(localStorage.getItem('weatherData'));
@@ -43,21 +44,7 @@ window.addEventListener('load', () => {
   });
 });
 
-const form = document.getElementById('search-form');
 const searchField = document.getElementById('search');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const searchTerm = searchField.value;
-
-  fetchWeatherData(searchTerm).then((data) => {
-    updateWeatherData(data);
-    updateDailyForecastData(data);
-    updateHourlyForecastData(data);
-    scrollToCurrentHour(data);
-  });
-  form.reset();
-});
-
 document.addEventListener('keydown', (event) => {
   if (event.ctrlKey && event.key === 'k') {
     event.preventDefault(); // avoid triggering browser shortcuts
