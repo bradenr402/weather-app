@@ -84,7 +84,7 @@ export default function updateWeatherData(data) {
     dataPoint: 'condition',
     conditionCode: data.current.condition.code,
     text: data.current.condition.text.trim(),
-    notes: `${data.current.cloud}% cloud coverage`,
+    notes: `${data.current.cloud}% cloud cover`,
   });
 
   updateWeatherDataPoint({
