@@ -14,7 +14,7 @@ function scrollToCurrentHour() {
   const hourlyContainer = document.getElementById('hourly-forecast');
   const exampleWidth = document.getElementById('hourly-0').clientWidth;
 
-  hourlyContainer.scrollTo((exampleWidth + 18) * new Date().getHours(), 0);
+  hourlyContainer.scrollLeft = (exampleWidth + 18) * new Date().getHours();
 }
 
 document.getElementById('scroll-to-current-hour').onclick = scrollToCurrentHour;
