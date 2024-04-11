@@ -1,15 +1,12 @@
 export default function setupScrollButtons() {
-  const hourlyScrollLeftBtn = document.getElementById('hourly-scroll-left');
-  const hourlyScrollRightBtn = document.getElementById('hourly-scroll-right');
-
   const hourlyContainer = document.getElementById('hourly-forecast');
   const exampleWidth = document.getElementById('hourly-0').clientWidth;
 
-  hourlyScrollLeftBtn.onclick = () => {
+  document.getElementById('hourly-scroll-left').onclick = () => {
     hourlyContainer.scrollLeft -= exampleWidth;
   };
 
-  hourlyScrollRightBtn.onclick = () => {
+  document.getElementById('hourly-scroll-right').onclick = () => {
     hourlyContainer.scrollLeft += exampleWidth;
   };
 }
