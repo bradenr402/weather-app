@@ -3,6 +3,7 @@ import fetchWeatherData from './fetch-weather-data';
 import updateWeatherData from './update-weather-data';
 import updateDailyForecastData from './update-daily-forecast-data';
 import updateHourlyForecastData from './update-hourly-forecast-data';
+import scrollToCurrentHour from './scroll-to-current-hour';
 
 const locationBtn = document.getElementById('location-btn');
 const locationBtnText = document.getElementById('location-btn-text');
@@ -26,6 +27,7 @@ locationBtn.onclick = async () => {
     updateWeatherData(data);
     updateDailyForecastData(data);
     updateHourlyForecastData(data);
+    scrollToCurrentHour(data);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);
