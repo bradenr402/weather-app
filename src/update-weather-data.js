@@ -16,6 +16,16 @@ function aqiValue(num) {
   return 'Unavailable';
 }
 
+function uvIndexDescription(num) {
+  // exposure categories from https://www.epa.gov/enviro/uv-index-description
+
+  if (num <= 2) return 'Low';
+  if (num <= 5) return 'Moderate';
+  if (num <= 7) return 'High';
+  if (num <= 10) return 'Very High';
+  return 'Extreme';
+}
+
 export default function updateWeatherData(data) {
   const currentTime = document.getElementById('current-time');
   currentTime.textContent = formatTime(data.location.localtime);
@@ -97,11 +107,12 @@ export default function updateWeatherData(data) {
   updateWeatherDataPoint({
     dataPoint: 'uv-index',
     text: data.current.uv,
+    notes: uvIndexDescription(data.current.uv),
   });
 
   updateWeatherDataPoint({
     dataPoint: 'wind',
     text: `${windData} ${speedUnit} ${data.current.wind_dir}`,
-    notes: `Gusts of wind up to ${gustData} ${speedUnit}`,
+    notes: `Gusts up to ${gustData} ${speedUnit}`,
   });
 }
