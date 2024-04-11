@@ -59,6 +59,7 @@ export default function generateWeatherList() {
       'opacity-60',
       'absolute',
       'bottom-6',
+      'max-w-[150px]',
     );
 
     containerDiv.append(dataParagraph, notesParagraph);

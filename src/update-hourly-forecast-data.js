@@ -17,13 +17,27 @@ function updateCurrentHourForecastData(data) {
     feelslikeData = data.current.feelslike_f;
   }
 
+  const distanceUnit = localStorage.getItem('distanceUnit') || 'mi';
+  let windData;
+  let gustData;
+  let speedUnit;
+  if (distanceUnit === 'km') {
+    windData = data.current.wind_kph;
+    gustData = data.current.gust_kph;
+    speedUnit = 'kph';
+  } else {
+    windData = data.current.wind_mph;
+    gustData = data.current.gust_mph;
+    speedUnit = 'mph';
+  }
+
   updateHourlyForecastDataPoint({
     hour,
     dataPoint: 'condition',
     conditionCode: data.current.condition.code,
     isDay: data.current.is_day,
     text: data.current.condition.text.trim(),
-    notes: `${data.current.cloud}% cloud coverage`,
+    notes: `${data.current.cloud}% cloud cover`,
   });
 
   updateHourlyForecastDataPoint({
@@ -56,8 +70,8 @@ function updateCurrentHourForecastData(data) {
   updateHourlyForecastDataPoint({
     hour,
     dataPoint: 'wind',
-    text: `${data.current.wind_mph} mph ${data.current.wind_dir}`,
-    notes: `Gusts up to ${data.current.gust_mph} mph`,
+    text: `${windData}${speedUnit} ${data.current.wind_dir}`,
+    notes: `Gusts up to ${gustData}${speedUnit}`,
   });
 }
 
@@ -139,8 +153,8 @@ export default function updateHourlyForecastData(data) {
       updateHourlyForecastDataPoint({
         hour,
         dataPoint: 'wind',
-        text: `${windData} ${speedUnit} ${hourlyData.wind_dir}`,
-        notes: `Gusts up to ${gustData} ${speedUnit}`,
+        text: `${windData}${speedUnit} ${hourlyData.wind_dir}`,
+        notes: `Gusts up to ${gustData}${speedUnit}`,
       });
     }
   }

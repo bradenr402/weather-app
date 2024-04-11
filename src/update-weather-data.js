@@ -10,7 +10,7 @@ function aqiDescription(num) {
     2: 'Moderate',
     3: 'Unhealthy for sensitive groups',
     4: 'Unhealthy',
-    5: 'Very Unhealthy',
+    5: 'Very unhealthy',
     6: 'Hazardous',
   };
 
@@ -31,10 +31,16 @@ function uvIndexDescription(num) {
 function visiblityDescription(num) {
   // visiblity categories from https://www.star.nesdis.noaa.gov/portfolio/detail_Visibility.php#:~:text=Fog%20droplets%20and%20haze%20particles,V%20%3C%202%20km)%20visibilities.
 
-  if (num <= 2) return 'Poor';
-  if (num <= 10) return 'Low';
-  if (num <= 30) return 'Moderate';
-  return 'Clear';
+  if (num <= 2) return 'Visibility is poor.';
+  if (num <= 10) return 'Visibility is low.';
+  if (num <= 30) return 'Visibility is moderate.';
+  return 'Visibility is clear.';
+}
+
+function humidityDescription(num) {
+  if (num < 30) return 'It should be dry and comfortable outside.';
+  if (num < 60) return 'It should be moderately comfortable outside.';
+  return 'It might be humid and uncomfortable outside.';
 }
 
 export default function updateWeatherData(data) {
@@ -84,24 +90,25 @@ export default function updateWeatherData(data) {
     dataPoint: 'condition',
     conditionCode: data.current.condition.code,
     text: data.current.condition.text.trim(),
-    notes: `${data.current.cloud}% cloud cover`,
+    notes: `Cloud cover is ${data.current.cloud}%.`,
   });
 
   updateWeatherDataPoint({
     dataPoint: 'temperature',
     text: `${tempData}°${tempUnit}`,
-    notes: `Feels like ${feelslikeData}°${tempUnit}`,
+    notes: `It feels like ${feelslikeData}°${tempUnit}.`,
   });
 
   updateWeatherDataPoint({
     dataPoint: 'precipitation',
     text: `${data.forecast.forecastday[0].day.daily_chance_of_rain}%`,
-    notes: `${precipitationData} ${measurementUnit}`,
+    notes: `Expect ${precipitationData}${measurementUnit} of precipitation today.`,
   });
 
   updateWeatherDataPoint({
     dataPoint: 'humidity',
     text: `${data.current.humidity}%`,
+    notes: humidityDescription(data.current.humidity),
   });
 
   updateWeatherDataPoint({
@@ -124,7 +131,7 @@ export default function updateWeatherData(data) {
 
   updateWeatherDataPoint({
     dataPoint: 'wind',
-    text: `${windData} ${speedUnit} ${data.current.wind_dir}`,
-    notes: `Gusts up to ${gustData} ${speedUnit}`,
+    text: `${windData}${speedUnit} ${data.current.wind_dir}`,
+    notes: `Gusts of wind up to ${gustData}${speedUnit} today.`,
   });
 }
