@@ -48,13 +48,6 @@ function updateCurrentHourForecastData(data) {
 
   updateHourlyForecastDataPoint({
     hour,
-    dataPoint: 'visibility',
-    text: `${data.current.vis_miles} mi`,
-    notes: 'Visiblity',
-  });
-
-  updateHourlyForecastDataPoint({
-    hour,
     dataPoint: 'uv-index',
     text: data.current.uv,
     notes: 'UV index',
@@ -94,17 +87,14 @@ export default function updateHourlyForecastData(data) {
       }
 
       const distanceUnit = localStorage.getItem('distanceUnit') || 'mi';
-      let visibilityData;
       let windData;
       let gustData;
       let speedUnit;
       if (distanceUnit === 'km') {
-        visibilityData = hourlyData.vis_km;
         windData = hourlyData.wind_kph;
         gustData = hourlyData.gust_kph;
         speedUnit = 'kph';
       } else {
-        visibilityData = hourlyData.vis_miles;
         windData = hourlyData.wind_mph;
         gustData = hourlyData.gust_mph;
         speedUnit = 'mph';
@@ -137,13 +127,6 @@ export default function updateHourlyForecastData(data) {
         dataPoint: 'humidity',
         text: `${hourlyData.humidity}%`,
         notes: 'Humidity',
-      });
-
-      updateHourlyForecastDataPoint({
-        hour,
-        dataPoint: 'visibility',
-        text: `${visibilityData} ${distanceUnit}`,
-        notes: 'Visiblity',
       });
 
       updateHourlyForecastDataPoint({

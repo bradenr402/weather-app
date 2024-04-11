@@ -49,7 +49,6 @@ export default function generateHourlyForecastList(hour) {
     { id: 'temperature', title: 'Temperature' },
     { id: 'precipitation', title: 'Precipitation' },
     { id: 'humidity', title: 'Humidity' },
-    { id: 'visibility', title: 'Visibility' },
     { id: 'uv-index', title: 'UV Index' },
     { id: 'wind', title: 'Wind' },
   ];
