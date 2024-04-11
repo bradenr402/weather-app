@@ -102,7 +102,7 @@ export default function updateWeatherData(data) {
   updateWeatherDataPoint({
     dataPoint: 'precipitation',
     text: `${data.forecast.forecastday[0].day.daily_chance_of_rain}%`,
-    notes: `Expect ${precipitationData}${measurementUnit} of precipitation today.`,
+    notes: `Expect ${precipitationData} ${measurementUnit} of precipitation today.`,
   });
 
   updateWeatherDataPoint({
@@ -131,7 +131,7 @@ export default function updateWeatherData(data) {
 
   updateWeatherDataPoint({
     dataPoint: 'wind',
-    text: `${windData}${speedUnit} ${data.current.wind_dir}`,
-    notes: `Gusts of wind up to ${gustData}${speedUnit} today.`,
+    text: `${windData} ${speedUnit} ${data.current.wind_dir}`,
+    notes: `Gusts of wind up to ${gustData} ${speedUnit} today.`,
   });
 }

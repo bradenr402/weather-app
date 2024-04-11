@@ -70,8 +70,8 @@ function updateCurrentHourForecastData(data) {
   updateHourlyForecastDataPoint({
     hour,
     dataPoint: 'wind',
-    text: `${windData}${speedUnit} ${data.current.wind_dir}`,
-    notes: `Gusts up to ${gustData}${speedUnit}`,
+    text: `${windData} ${speedUnit} ${data.current.wind_dir}`,
+    notes: `Gusts up to ${gustData} ${speedUnit}`,
   });
 }
 
@@ -153,8 +153,8 @@ export default function updateHourlyForecastData(data) {
       updateHourlyForecastDataPoint({
         hour,
         dataPoint: 'wind',
-        text: `${windData}${speedUnit} ${hourlyData.wind_dir}`,
-        notes: `Gusts up to ${gustData}${speedUnit}`,
+        text: `${windData} ${speedUnit} ${hourlyData.wind_dir}`,
+        notes: `Gusts up to ${gustData} ${speedUnit}`,
       });
     }
   }

@@ -1,10 +1,10 @@
 export default function formatTime(date) {
   const time = new Date(date);
-  let format = '{h}:{m} {ap}';
+  let format = '{h}:{m}{ap}';
 
   let h = time.getHours();
 
-  const ap = h > 11 ? 'PM' : 'AM';
+  const ap = h > 11 ? 'pm' : 'am';
 
   if (h > 12) h -= 12;
 

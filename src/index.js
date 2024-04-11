@@ -72,7 +72,7 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-const locationBtn = document.getElementById('current-location');
+const locationBtn = document.getElementById('location-btn');
 const locationBtnText = document.getElementById('location-btn-text');
 const locationIcon = document.getElementById('location-icon');
 const spinnerIcon = document.getElementById('spinner-icon');
