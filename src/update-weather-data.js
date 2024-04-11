@@ -3,6 +3,8 @@ import getCityTitle from './get-city-title';
 import formatTime from './format-time';
 
 function aqiValue(num) {
+  // aqi values from https://www.weatherapi.com/docs/#intro-aqi
+
   const aqiDictionary = {
     1: 'Good',
     2: 'Moderate',
