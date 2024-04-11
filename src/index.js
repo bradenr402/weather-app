@@ -5,10 +5,10 @@ import updateWeatherData from './update-weather-data';
 import updateDailyForecastData from './update-daily-forecast-data';
 import generateDailyForecastList from './generate-daily-forecast-list';
 import generateWeatherList from './generate-weather-list';
-import geoLocate from './geolocation';
 import generateHourlyForecastList from './generate-hourly-forecast-list';
 import updateHourlyForecastData from './update-hourly-forecast-data';
 import './save-settings';
+import './location-btn';
 
 function scrollToCurrentHour(data) {
   const hourlyContainer = document.getElementById('hourly-forecast');
@@ -76,36 +76,3 @@ document.addEventListener('keydown', (event) => {
     searchField.blur();
   }
 });
-
-const locationBtn = document.getElementById('location-btn');
-const locationBtnText = document.getElementById('location-btn-text');
-const locationIcon = document.getElementById('location-icon');
-const spinnerIcon = document.getElementById('spinner-icon');
-
-locationBtn.onclick = async () => {
-  locationBtn.disabled = true;
-  const prevLocationBtnText = locationBtnText.textContent;
-  locationBtnText.textContent = 'Getting Your Location';
-  locationIcon.classList.add('hidden');
-  spinnerIcon.classList.remove('hidden');
-
-  try {
-    const location = await geoLocate();
-    locationBtnText.textContent = 'Updating Weather Information';
-
-    const currentLocation = [location.lat, location.lng].join();
-    const data = await fetchWeatherData(currentLocation);
-
-    updateWeatherData(data);
-    updateDailyForecastData(data);
-    updateHourlyForecastData(data);
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
-  } finally {
-    locationBtn.disabled = false;
-    locationBtnText.textContent = prevLocationBtnText;
-    locationIcon.classList.remove('hidden');
-    spinnerIcon.classList.add('hidden');
-  }
-};
