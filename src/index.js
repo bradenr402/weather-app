@@ -13,11 +13,6 @@ import './location-btn';
 import './search-form';
 import './search-keyboard-shortcuts';
 
-document.getElementById('scroll-to-current-hour').onclick = () => {
-  const data = JSON.parse(localStorage.getItem('weatherData'));
-  scrollToCurrentHour(data);
-};
-
 window.addEventListener('load', () => {
   const weatherContainer = document.getElementById('current-weather');
   const weatherList = generateWeatherList();
