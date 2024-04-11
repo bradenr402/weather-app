@@ -9,14 +9,7 @@ import generateHourlyForecastList from './generate-hourly-forecast-list';
 import updateHourlyForecastData from './update-hourly-forecast-data';
 import './save-settings';
 import './location-btn';
-
-function scrollToCurrentHour(data) {
-  const hourlyContainer = document.getElementById('hourly-forecast');
-  const exampleWidth = document.getElementById('hourly-0').clientWidth;
-
-  const currentHour = new Date(data.location.localtime).getHours();
-  hourlyContainer.scrollLeft = (exampleWidth + 18) * currentHour;
-}
+import scrollToCurrentHour from './scroll-to-current-hour';
 
 document.getElementById('scroll-to-current-hour').onclick = () => {
   const data = JSON.parse(localStorage.getItem('weatherData'));
