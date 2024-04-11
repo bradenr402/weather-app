@@ -43,7 +43,13 @@ export default function generateWeatherList() {
 
     const titleSpan = document.createElement('span');
     titleSpan.textContent = item.title;
-    titleSpan.classList.add('font-bold', 'text-lg', 'absolute', 'top-6');
+    titleSpan.classList.add(
+      'font-bold',
+      'text-lg',
+      'absolute',
+      'top-6',
+      'max-w-[150px]',
+    );
 
     const containerDiv = document.createElement('div');
     containerDiv.classList.add('flex', 'flex-col', 'items-center', 'gap-4');
