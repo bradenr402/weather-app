@@ -12,6 +12,7 @@ import './save-settings';
 import './location-btn';
 import './search-form';
 import './search-keyboard-shortcuts';
+import setupScrollButtons from './scroll-buttons';
 
 window.onload = () => {
   const weatherContainer = document.getElementById('current-weather');
@@ -38,4 +39,5 @@ window.onload = () => {
 
     setTimeout(() => scrollToCurrentHour(data), 500);
   });
+  setupScrollButtons();
 };
