@@ -1,20 +1,21 @@
-import './style.css';
 import fetchWeatherData, { DAYS } from './fetch-weather-data';
-import getLastLocation from './get-last-location';
-import updateWeatherData from './update-weather-data';
-import updateDailyForecastData from './update-daily-forecast-data';
 import generateDailyForecastList from './generate-daily-forecast-list';
-import generateWeatherList from './generate-weather-list';
 import generateHourlyForecastList from './generate-hourly-forecast-list';
-import updateHourlyForecastData from './update-hourly-forecast-data';
+import generateWeatherList from './generate-weather-list';
+import getLastLocation from './get-last-location';
+import setupScrollButtons from './scroll-buttons';
 import scrollToCurrentHour from './scroll-to-current-hour';
+import updateDailyForecastData from './update-daily-forecast-data';
+import updateHourlyForecastData from './update-hourly-forecast-data';
+import updateWeatherData from './update-weather-data';
+
+import './location-btn';
+import './save-settings';
 import './scroll-to-beginning';
 import './scroll-to-end';
-import './save-settings';
-import './location-btn';
 import './search-form';
 import './search-keyboard-shortcuts';
-import setupScrollButtons from './scroll-buttons';
+import './style.css';
 
 window.onload = () => {
   const weatherContainer = document.getElementById('current-weather');
