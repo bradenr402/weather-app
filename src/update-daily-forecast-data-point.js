@@ -14,7 +14,7 @@ export default function updateDailyForecastDataPoint({
     const forecastContainer = document.getElementById(`forecast-${day}`);
 
     // removes previous background color
-    Array.from(forecastContainer.classList).forEach((element) => {
+    [...forecastContainer.classList].forEach((element) => {
       if (element.startsWith('bg-')) {
         forecastContainer.classList.remove(element);
       }

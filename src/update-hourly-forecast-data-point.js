@@ -17,7 +17,7 @@ export default function updateHourlyForecastDataPoint({
     const hourlyContainer = document.getElementById(`hourly-${hour}`);
 
     // removes previous background color
-    Array.from(hourlyContainer.classList).forEach((element) => {
+    [...hourlyContainer.classList].forEach((element) => {
       if (element.startsWith('bg-')) {
         hourlyContainer.classList.remove(element);
       }
