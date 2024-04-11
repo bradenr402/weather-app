@@ -11,6 +11,7 @@ import scrollToCurrentHour from './scroll-to-current-hour';
 import './save-settings';
 import './location-btn';
 import './search-form';
+import './search-keyboard-shortcuts';
 
 document.getElementById('scroll-to-current-hour').onclick = () => {
   const data = JSON.parse(localStorage.getItem('weatherData'));
@@ -42,17 +43,4 @@ window.addEventListener('load', () => {
 
     setTimeout(() => scrollToCurrentHour(data), 500);
   });
-});
-
-const searchField = document.getElementById('search');
-document.addEventListener('keydown', (event) => {
-  if (event.ctrlKey && event.key === 'k') {
-    event.preventDefault(); // avoid triggering browser shortcuts
-    searchField.focus();
-  }
-
-  if (event.key === 'Escape') {
-    event.preventDefault();
-    searchField.blur();
-  }
 });
