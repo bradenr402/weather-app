@@ -26,6 +26,15 @@ function uvIndexDescription(num) {
   return 'Extreme';
 }
 
+function visiblityDescription(num) {
+  // visiblity categories from https://www.star.nesdis.noaa.gov/portfolio/detail_Visibility.php#:~:text=Fog%20droplets%20and%20haze%20particles,V%20%3C%202%20km)%20visibilities.
+
+  if (num <= 2) return 'Poor';
+  if (num <= 10) return 'Low';
+  if (num <= 30) return 'Moderate';
+  return 'Clear';
+}
+
 export default function updateWeatherData(data) {
   const currentTime = document.getElementById('current-time');
   currentTime.textContent = formatTime(data.location.localtime);
@@ -96,6 +105,7 @@ export default function updateWeatherData(data) {
   updateWeatherDataPoint({
     dataPoint: 'visibility',
     text: `${visibilityData} ${distanceUnit}`,
+    notes: visiblityDescription(data.current.vis_km),
   });
 
   updateWeatherDataPoint({
