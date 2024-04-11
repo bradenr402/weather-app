@@ -1,10 +1,25 @@
 import updateHourlyForecastDataPoint from './update-hourly-forecast-data-point';
 
+function getHour(hour, now) {
+  if (hour === now) return 'Now';
+  if (hour === 0) return '12am';
+  if (hour <= 12) return `${hour}am`;
+  return `${hour - 12}pm`;
+}
+
 function updateCurrentHourForecastData(data) {
-  const hour = new Date().getHours();
+  const hour = new Date(data.location.localtime).getHours();
 
   const weatherIcon = document.getElementById(`hourly-weather-icon-${hour}`);
   weatherIcon.src = `https:${data.current.condition.icon}`;
+
+  const hourContainer = document.getElementById(`hourly-${hour}`);
+  [...hourContainer.classList].forEach((element) => {
+    if (element.startsWith('border-')) {
+      hourContainer.classList.remove(element);
+    }
+  });
+  hourContainer.classList.add('border-[#1da1f2]');
 
   const tempUnit = localStorage.getItem('temperatureUnit') || 'F';
   let tempData;
@@ -76,18 +91,28 @@ function updateCurrentHourForecastData(data) {
 }
 
 export default function updateHourlyForecastData(data) {
-  updateCurrentHourForecastData(data);
-
   for (let hour = 0; hour < 24; hour++) {
-    const now = new Date().getHours();
+    const now = new Date(data.location.localtime).getHours();
 
-    if (hour !== now) {
+    document.getElementById(`hour-${hour}`).textContent = getHour(hour, now);
+
+    if (hour === now) {
+      updateCurrentHourForecastData(data);
+    } else {
       const hourlyData = data.forecast.forecastday[0].hour[hour];
 
       const weatherIcon = document.getElementById(
         `hourly-weather-icon-${hour}`,
       );
       weatherIcon.src = `https:${hourlyData.condition.icon}`;
+
+      const hourContainer = document.getElementById(`hourly-${hour}`);
+      [...hourContainer.classList].forEach((element) => {
+        if (element.startsWith('border-')) {
+          hourContainer.classList.remove(element);
+        }
+      });
+      hourContainer.classList.add('border-gray-300');
 
       const tempUnit = localStorage.getItem('temperatureUnit') || 'F';
       let tempData;

@@ -125,10 +125,6 @@
         >
           <h2 class="mx-12 mb-2 text-xl font-semibold font-small-caps">
             Current Weather
-            <span class="ml-2 self-end text-sm text-gray-500">
-              <span id="current-time"></span>
-              <span class="text-xs font-variant-normal">local time</span>
-            </span>
           </h2>
           <div id="current-weather" class="px-8">
             <!-- Generate current weather data here -->
@@ -143,7 +139,13 @@
           <h2
             class="mx-12 mb-2 flex items-center justify-between text-xl font-semibold font-small-caps"
           >
-            <span>Hourly Forecast</span>
+            <span>
+              Hourly Forecast
+              <span class="ml-2 self-end text-sm text-gray-500">
+                <span id="current-time"></span>
+                <span class="text-xs font-variant-normal">local time</span>
+              </span>
+            </span>
             <button
               id="scroll-to-current-hour"
               class="rounded-lg border border-slate-200 bg-white px-3.5 py-1.5 text-sm font-medium hover:bg-slate-100 hover:text-[#1da1f2] focus:z-10 focus:border-[#1da1f2] focus:outline-none focus:ring-2 focus:ring-[#1da1f2]/50"

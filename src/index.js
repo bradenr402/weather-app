@@ -10,14 +10,18 @@ import generateHourlyForecastList from './generate-hourly-forecast-list';
 import updateHourlyForecastData from './update-hourly-forecast-data';
 import './save-settings';
 
-function scrollToCurrentHour() {
+function scrollToCurrentHour(data) {
   const hourlyContainer = document.getElementById('hourly-forecast');
   const exampleWidth = document.getElementById('hourly-0').clientWidth;
 
-  hourlyContainer.scrollLeft = (exampleWidth + 18) * new Date().getHours();
+  const currentHour = new Date(data.location.localtime).getHours();
+  hourlyContainer.scrollLeft = (exampleWidth + 18) * currentHour;
 }
 
-document.getElementById('scroll-to-current-hour').onclick = scrollToCurrentHour;
+document.getElementById('scroll-to-current-hour').onclick = () => {
+  const data = JSON.parse(localStorage.getItem('weatherData'));
+  scrollToCurrentHour(data);
+};
 
 window.addEventListener('load', () => {
   const weatherContainer = document.getElementById('current-weather');
@@ -42,7 +46,7 @@ window.addEventListener('load', () => {
     updateDailyForecastData(data);
     updateHourlyForecastData(data);
 
-    setTimeout(() => scrollToCurrentHour(), 500);
+    setTimeout(() => scrollToCurrentHour(data), 500);
   });
 });
 
@@ -56,6 +60,7 @@ form.addEventListener('submit', (event) => {
     updateWeatherData(data);
     updateDailyForecastData(data);
     updateHourlyForecastData(data);
+    scrollToCurrentHour(data);
   });
   form.reset();
 });

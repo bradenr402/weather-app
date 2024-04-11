@@ -1,12 +1,3 @@
-function getHour(hour) {
-  const now = new Date().getHours();
-
-  if (hour === now) return 'Now';
-  if (hour === 0) return '12pm';
-  if (hour <= 12) return `${hour}pm`;
-  return `${hour - 12}pm`;
-}
-
 export default function generateHourlyForecastList(hour) {
   const hourlyList = document.createElement('ul');
   hourlyList.id = `hourly-${hour}`;
@@ -43,7 +34,7 @@ export default function generateHourlyForecastList(hour) {
     'text-lg',
     'font-small-caps',
   );
-  hourTitle.textContent = getHour(hour);
+  // hourTitle.textContent = getHour(hour);
 
   titleContainer.append(weatherIcon, hourTitle);
   headerDiv.appendChild(titleContainer);
