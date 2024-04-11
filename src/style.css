@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  #weather-icon[src='#'],
-  #weather-icon[src=''] {
+  img[id*='weather-icon'][src='#'],
+  img[id*='weather-icon'][src=''] {
     display: none;
   }
 }
