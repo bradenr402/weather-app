@@ -2,7 +2,7 @@ import updateWeatherDataPoint from './update-weather-data-point';
 import getCityTitle from './get-city-title';
 import formatTime from './format-time';
 
-function aqiValue(num) {
+function aqiDescription(num) {
   // aqi values from https://www.weatherapi.com/docs/#intro-aqi
 
   const aqiDictionary = {
@@ -113,7 +113,7 @@ export default function updateWeatherData(data) {
   updateWeatherDataPoint({
     dataPoint: 'air-quality',
     text: data.current.air_quality['us-epa-index'],
-    notes: aqiValue(data.current.air_quality['us-epa-index']),
+    notes: aqiDescription(data.current.air_quality['us-epa-index']),
   });
 
   updateWeatherDataPoint({
