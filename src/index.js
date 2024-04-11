@@ -73,32 +73,34 @@ document.addEventListener('keydown', (event) => {
 });
 
 const locationBtn = document.getElementById('current-location');
+const locationBtnText = document.getElementById('location-btn-text');
 const locationIcon = document.getElementById('location-icon');
 const spinnerIcon = document.getElementById('spinner-icon');
-locationBtn.addEventListener('click', () => {
-  locationIcon.classList.add('hidden');
+
+locationBtn.onclick = async () => {
   locationBtn.disabled = true;
+  const prevLocationBtnText = locationBtnText.textContent;
+  locationBtnText.textContent = 'Getting Your Location';
+  locationIcon.classList.add('hidden');
   spinnerIcon.classList.remove('hidden');
 
-  geoLocate()
-    .then((location) => {
-      const currentLocation = `${location.lat},${location.lng}`;
-      fetchWeatherData(currentLocation).then((data) => {
-        updateWeatherData(data);
-        updateDailyForecastData(data);
-        updateHourlyForecastData(data);
-      });
+  try {
+    const location = await geoLocate();
+    locationBtnText.textContent = 'Updating Weather Information';
 
-      locationIcon.classList.remove('hidden');
-      locationBtn.disabled = false;
-      spinnerIcon.classList.add('hidden');
-    })
-    .catch((error) => {
-      // eslint-disable-next-line no-console
-      console.error(error);
+    const currentLocation = [location.lat, location.lng].join();
+    const data = await fetchWeatherData(currentLocation);
 
-      locationIcon.classList.remove('hidden');
-      locationBtn.disabled = false;
-      spinnerIcon.classList.add('hidden');
-    });
-});
+    updateWeatherData(data);
+    updateDailyForecastData(data);
+    updateHourlyForecastData(data);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+  } finally {
+    locationBtn.disabled = false;
+    locationBtnText.textContent = prevLocationBtnText;
+    locationIcon.classList.remove('hidden');
+    spinnerIcon.classList.add('hidden');
+  }
+};
