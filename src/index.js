@@ -13,7 +13,7 @@ import './location-btn';
 import './search-form';
 import './search-keyboard-shortcuts';
 
-window.addEventListener('load', () => {
+window.onload = () => {
   const weatherContainer = document.getElementById('current-weather');
   const weatherList = generateWeatherList();
   weatherContainer.appendChild(weatherList);
@@ -38,4 +38,4 @@ window.addEventListener('load', () => {
 
     setTimeout(() => scrollToCurrentHour(data), 500);
   });
-});
+};
