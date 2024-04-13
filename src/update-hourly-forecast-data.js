@@ -1,3 +1,6 @@
+import getDistanceUnit from './get-distance-unit';
+import getSpeedUnit from './get-speed-unit';
+import getTemperatureUnit from './get-temperature-unit';
 import updateHourlyForecastDataPoint from './update-hourly-forecast-data-point';
 
 function getHour(hour, now) {
@@ -21,7 +24,7 @@ function updateCurrentHourForecastData(data) {
   });
   hourContainer.classList.add('border-[#1da1f2]');
 
-  const tempUnit = localStorage.getItem('temperatureUnit') || 'F';
+  const tempUnit = getTemperatureUnit();
   let tempData;
   let feelslikeData;
   if (tempUnit === 'C') {
@@ -32,18 +35,16 @@ function updateCurrentHourForecastData(data) {
     feelslikeData = data.current.feelslike_f;
   }
 
-  const distanceUnit = localStorage.getItem('distanceUnit') || 'mi';
+  const distanceUnit = getDistanceUnit();
   let windData;
   let gustData;
-  let speedUnit;
+  const speedUnit = getSpeedUnit();
   if (distanceUnit === 'km') {
     windData = data.current.wind_kph;
     gustData = data.current.gust_kph;
-    speedUnit = 'kph';
   } else {
     windData = data.current.wind_mph;
     gustData = data.current.gust_mph;
-    speedUnit = 'mph';
   }
 
   updateHourlyForecastDataPoint({
@@ -114,7 +115,7 @@ export default function updateHourlyForecastData(data) {
       });
       hourContainer.classList.add('border-gray-300');
 
-      const tempUnit = localStorage.getItem('temperatureUnit') || 'F';
+      const tempUnit = getTemperatureUnit();
       let tempData;
       let feelslikeData;
       if (tempUnit === 'C') {
@@ -125,18 +126,16 @@ export default function updateHourlyForecastData(data) {
         feelslikeData = hourlyData.feelslike_f;
       }
 
-      const distanceUnit = localStorage.getItem('distanceUnit') || 'mi';
+      const distanceUnit = getDistanceUnit();
       let windData;
       let gustData;
-      let speedUnit;
+      const speedUnit = getSpeedUnit();
       if (distanceUnit === 'km') {
         windData = hourlyData.wind_kph;
         gustData = hourlyData.gust_kph;
-        speedUnit = 'kph';
       } else {
         windData = hourlyData.wind_mph;
         gustData = hourlyData.gust_mph;
-        speedUnit = 'mph';
       }
 
       updateHourlyForecastDataPoint({

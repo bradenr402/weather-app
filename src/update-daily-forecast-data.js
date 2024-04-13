@@ -1,5 +1,6 @@
 import updateDailyForecastDataPoint from './update-daily-forecast-data-point';
 import { DAYS } from './fetch-weather-data';
+import getTemperatureUnit from './get-temperature-unit';
 
 function formatTime(time) {
   const [sunsetHours, sunsetMinutes] = time.split(/:|\s/);
@@ -21,7 +22,7 @@ export default function updateDailyForecastData(data) {
     const weatherIcon = document.getElementById(`forecast-weather-icon-${day}`);
     weatherIcon.src = `https:${forecastData.day.condition.icon}`;
 
-    const tempUnit = localStorage.getItem('temperatureUnit') || 'F';
+    const tempUnit = getTemperatureUnit();
     let maxTempData;
     let minTempData;
     if (tempUnit === 'C') {

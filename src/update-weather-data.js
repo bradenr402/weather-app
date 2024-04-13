@@ -1,6 +1,10 @@
 import updateWeatherDataPoint from './update-weather-data-point';
 import getCityTitle from './get-city-title';
 import formatTime from './format-time';
+import getTemperatureUnit from './get-temperature-unit';
+import getDistanceUnit from './get-distance-unit';
+import getMeasurementUnit from './get-measurement-unit';
+import getSpeedUnit from './get-speed-unit';
 
 function aqiDescription(num) {
   // aqi values from https://www.weatherapi.com/docs/#intro-aqi
@@ -53,7 +57,7 @@ export default function updateWeatherData(data) {
   const weatherIcon = document.getElementById('weather-icon');
   weatherIcon.src = `https:${data.current.condition.icon}`;
 
-  const tempUnit = localStorage.getItem('temperatureUnit') || 'F';
+  const tempUnit = getTemperatureUnit();
   let tempData;
   let feelslikeData;
   if (tempUnit === 'C') {
@@ -64,24 +68,22 @@ export default function updateWeatherData(data) {
     feelslikeData = data.current.feelslike_f;
   }
 
-  const distanceUnit = localStorage.getItem('distanceUnit') || 'mi';
+  const distanceUnit = getDistanceUnit();
   let visibilityData;
   let windData;
   let gustData;
-  let speedUnit;
+  const speedUnit = getSpeedUnit();
   if (distanceUnit === 'km') {
     visibilityData = data.current.vis_km;
     windData = data.current.wind_kph;
     gustData = data.current.gust_kph;
-    speedUnit = 'kph';
   } else {
     visibilityData = data.current.vis_miles;
     windData = data.current.wind_mph;
     gustData = data.current.gust_mph;
-    speedUnit = 'mph';
   }
 
-  const measurementUnit = localStorage.getItem('measurementUnit') || 'in';
+  const measurementUnit = getMeasurementUnit();
   let precipitationData;
   if (measurementUnit === 'mm') precipitationData = data.current.precip_mm;
   else precipitationData = data.current.precip_in;

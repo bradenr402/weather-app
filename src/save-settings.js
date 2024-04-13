@@ -1,11 +1,14 @@
 import updateWeatherData from './update-weather-data';
 import updateDailyForecastData from './update-daily-forecast-data';
 import updateHourlyForecastData from './update-hourly-forecast-data';
+import getTemperatureUnit from './get-temperature-unit';
+import getDistanceUnit from './get-distance-unit';
+import getMeasurementUnit from './get-measurement-unit';
 
 function preselectChosenSettings() {
-  const temperatureUnit = localStorage.getItem('temperatureUnit') || 'F';
-  const distanceUnit = localStorage.getItem('distanceUnit') || 'mi';
-  const measurementUnit = localStorage.getItem('measurementUnit') || 'in';
+  const temperatureUnit = getTemperatureUnit();
+  const distanceUnit = getDistanceUnit();
+  const measurementUnit = getMeasurementUnit();
 
   document.getElementById(temperatureUnit).checked = true;
   document.getElementById(distanceUnit).checked = true;
