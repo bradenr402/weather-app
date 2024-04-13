@@ -5,7 +5,7 @@
 @layer base {
   img[id*='weather-icon'][src='#'],
   img[id*='weather-icon'][src=''] {
-    @apply hidden
+    @apply hidden;
   }
 
   input[type='search']::-webkit-search-decoration,
